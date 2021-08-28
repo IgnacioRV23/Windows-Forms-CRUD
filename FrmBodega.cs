@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InventarioEmpresa
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmBodega : Form
     {
-        public FrmPrincipal()
+        public FrmBodega()
         {
             InitializeComponent();
         }
