@@ -52,6 +52,12 @@
     <Compile Include="FrmBodega.Designer.cs">
       <DependentUpon>FrmBodega.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmColaboradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColaboradores.Designer.cs">
+      <DependentUpon>FrmColaboradores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBodega.resx">
       <DependentUpon>FrmBodega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColaboradores.resx">
+      <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

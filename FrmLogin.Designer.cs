@@ -134,6 +134,7 @@ namespace InventarioEmpresa
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión";
             this.ResumeLayout(false);
             this.PerformLayout();

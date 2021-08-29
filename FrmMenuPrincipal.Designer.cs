@@ -137,6 +137,7 @@ namespace InventarioEmpresa
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal";
             this.ResumeLayout(false);
             this.PerformLayout();
