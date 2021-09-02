@@ -168,6 +168,7 @@ namespace InventarioEmpresa
             this.btnCerrarBodega.TabIndex = 3;
             this.btnCerrarBodega.Text = "Cerrar";
             this.btnCerrarBodega.UseVisualStyleBackColor = false;
+            this.btnCerrarBodega.Click += new System.EventHandler(this.btnCerrarBodega_Click);
             // 
             // btnEliminarProducto
             // 

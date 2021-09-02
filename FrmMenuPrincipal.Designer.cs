@@ -33,8 +33,8 @@ namespace InventarioEmpresa
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnColaboradores = new System.Windows.Forms.Button();
             this.btnBodega = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -63,33 +63,36 @@ namespace InventarioEmpresa
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("HP Simplified", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(49, 166);
+            this.label3.Location = new System.Drawing.Point(49, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Lista de colaboradores:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("HP Simplified", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(49, 243);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 18);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Cerrar la aplicación:";
             // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Azure;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(295, 245);
+            this.btnCerrar.Image = global::InventarioEmpresa.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.Location = new System.Drawing.Point(295, 236);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(139, 25);
             this.btnCerrar.TabIndex = 5;
             this.btnCerrar.Text = "Cerrar Aplicación";
             this.btnCerrar.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("HP Simplified", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(49, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 18);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Cerrar la aplicación:";
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnColaboradores
             // 
@@ -98,12 +101,13 @@ namespace InventarioEmpresa
             this.btnColaboradores.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnColaboradores.Image = global::InventarioEmpresa.Properties.Resources.colaboradores;
             this.btnColaboradores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnColaboradores.Location = new System.Drawing.Point(295, 159);
+            this.btnColaboradores.Location = new System.Drawing.Point(295, 161);
             this.btnColaboradores.Name = "btnColaboradores";
             this.btnColaboradores.Size = new System.Drawing.Size(139, 25);
             this.btnColaboradores.TabIndex = 4;
             this.btnColaboradores.Text = "Colaboradores";
             this.btnColaboradores.UseVisualStyleBackColor = false;
+            this.btnColaboradores.Click += new System.EventHandler(this.btnColaboradores_Click);
             // 
             // btnBodega
             // 
@@ -118,6 +122,7 @@ namespace InventarioEmpresa
             this.btnBodega.TabIndex = 3;
             this.btnBodega.Text = "Bodega";
             this.btnBodega.UseVisualStyleBackColor = false;
+            this.btnBodega.Click += new System.EventHandler(this.btnBodega_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -125,7 +130,7 @@ namespace InventarioEmpresa
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(478, 315);
+            this.ClientSize = new System.Drawing.Size(478, 305);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnColaboradores);
@@ -139,6 +144,7 @@ namespace InventarioEmpresa
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

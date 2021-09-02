@@ -36,7 +36,7 @@ namespace InventarioEmpresa
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.cbMostrar = new System.Windows.Forms.CheckBox();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,18 +65,21 @@ namespace InventarioEmpresa
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.SteelBlue;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(157, 24);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(100, 21);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContrasena
             // 
             this.txtContrasena.BackColor = System.Drawing.Color.SteelBlue;
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(157, 72);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(100, 20);
+            this.txtContrasena.PasswordChar = '*';
+            this.txtContrasena.Size = new System.Drawing.Size(100, 21);
             this.txtContrasena.TabIndex = 3;
             // 
             // cbMostrar
@@ -90,30 +93,34 @@ namespace InventarioEmpresa
             this.cbMostrar.TabIndex = 4;
             this.cbMostrar.Text = "Mostrar";
             this.cbMostrar.UseVisualStyleBackColor = true;
+            this.cbMostrar.CheckedChanged += new System.EventHandler(this.cbMostrar_CheckedChanged);
             // 
             // btnIngresar
             // 
-            this.btnIngresar.BackColor = System.Drawing.Color.Lime;
+            this.btnIngresar.BackColor = System.Drawing.Color.Navy;
             this.btnIngresar.Font = new System.Drawing.Font("HP Simplified", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngresar.Location = new System.Drawing.Point(169, 138);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(88, 35);
+            this.btnIngresar.Size = new System.Drawing.Size(99, 29);
             this.btnIngresar.TabIndex = 5;
-            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.Text = "Iniciar sesión";
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // btnCancelar
+            // btnCerrar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Red;
-            this.btnCancelar.Font = new System.Drawing.Font("HP Simplified", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(30, 138);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(88, 35);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(19, 138);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(99, 29);
+            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.Text = "Cerrar aplicación";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FrmLogin
             // 
@@ -121,8 +128,9 @@ namespace InventarioEmpresa
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(291, 192);
-            this.Controls.Add(this.btnCancelar);
+            this.ClientSize = new System.Drawing.Size(288, 184);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.cbMostrar);
             this.Controls.Add(this.txtContrasena);
@@ -133,7 +141,7 @@ namespace InventarioEmpresa
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión";
             this.ResumeLayout(false);
@@ -149,6 +157,6 @@ namespace InventarioEmpresa
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.CheckBox cbMostrar;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
