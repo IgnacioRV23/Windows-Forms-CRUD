@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bodega.cs">
+      <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboradores.cs">
+      <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityAplicacionEmpresa.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityAplicacionEmpresa.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityAplicacionEmpresa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityAplicacionEmpresa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
+    </Compile>
     <Compile Include="FrmBodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +100,12 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProcesoConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProcesoConexion.Designer.cs">
+      <DependentUpon>FrmProcesoConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBodega.resx">
@@ -84,6 +120,9 @@
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProcesoConexion.resx">
+      <DependentUpon>FrmProcesoConexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -94,6 +133,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="EntityAplicacionEmpresa.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityAplicacionEmpresa.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityAplicacionEmpresa.edmx.diagram">
+      <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +168,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityAplicacionEmpresa.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
+      <LastGenOutput>EntityAplicacionEmpresa.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityAplicacionEmpresa.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
+      <LastGenOutput>EntityAplicacionEmpresa.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

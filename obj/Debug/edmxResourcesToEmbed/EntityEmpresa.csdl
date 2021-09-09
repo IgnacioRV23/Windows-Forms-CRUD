@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AplicacionEmpresaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bodega">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Precio" />
+      <PropertyRef Name="Cantidad" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colaboradores">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Edad" />
+      <PropertyRef Name="FechaNacimiento" />
+      <PropertyRef Name="Genero" />
+      <PropertyRef Name="Direccion" />
+      <PropertyRef Name="Puesto" />
+      <PropertyRef Name="Salario" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Salario" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DbAplicacionEmpresa" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bodega" EntityType="Self.Bodega" />
+    <EntitySet Name="Colaboradores" EntityType="Self.Colaboradores" />
+  </EntityContainer>
+</Schema>

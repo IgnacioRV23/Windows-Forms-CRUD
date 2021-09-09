@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AplicacionEmpresaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'AplicacionEmpresa.dbo.Bodega' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Bodega">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Precio" />
+      <PropertyRef Name="Cantidad" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Precio" Type="float" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'AplicacionEmpresa.dbo.Colaboradores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Colaboradores">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Edad" />
+      <PropertyRef Name="FechaNacimiento" />
+      <PropertyRef Name="Genero" />
+      <PropertyRef Name="Direccion" />
+      <PropertyRef Name="Puesto" />
+      <PropertyRef Name="Salario" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Edad" Type="int" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+    <Property Name="Genero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salario" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="AplicacionEmpresaModelStoreContainer">
+    <EntitySet Name="Bodega" EntityType="Self.Bodega" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Bodega].[ID] AS [ID], 
+    [Bodega].[Nombre] AS [Nombre], 
+    [Bodega].[Precio] AS [Precio], 
+    [Bodega].[Cantidad] AS [Cantidad]
+    FROM [dbo].[Bodega] AS [Bodega]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Colaboradores" EntityType="Self.Colaboradores" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Colaboradores].[ID] AS [ID], 
+    [Colaboradores].[Cedula] AS [Cedula], 
+    [Colaboradores].[Nombre] AS [Nombre], 
+    [Colaboradores].[Edad] AS [Edad], 
+    [Colaboradores].[FechaNacimiento] AS [FechaNacimiento], 
+    [Colaboradores].[Genero] AS [Genero], 
+    [Colaboradores].[Direccion] AS [Direccion], 
+    [Colaboradores].[Puesto] AS [Puesto], 
+    [Colaboradores].[Salario] AS [Salario]
+    FROM [dbo].[Colaboradores] AS [Colaboradores]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -62,42 +62,37 @@ namespace InventarioEmpresa
             this.label1 = new System.Windows.Forms.Label();
             this.tpConsultar = new System.Windows.Forms.TabPage();
             this.gbConsultarColaborador = new System.Windows.Forms.GroupBox();
-            this.txtConsultarCedula = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.dgvColaboradores = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRegresarConsultar = new System.Windows.Forms.Button();
-            this.txtConsultarPuesto = new System.Windows.Forms.TextBox();
-            this.txtConsultarGenero = new System.Windows.Forms.TextBox();
-            this.txtConsultarEdad = new System.Windows.Forms.TextBox();
-            this.txtConsultarSalario = new System.Windows.Forms.TextBox();
-            this.txtConsultarFecha = new System.Windows.Forms.TextBox();
-            this.txtConsultarDireccion = new System.Windows.Forms.TextBox();
-            this.txtConsultarNombre = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tpModificar = new System.Windows.Forms.TabPage();
             this.gbModificarColaborador = new System.Windows.Forms.GroupBox();
+            this.txtIdModificar = new System.Windows.Forms.TextBox();
             this.btnConsultarModificar = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRegresarModificar = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtModificarPuesto = new System.Windows.Forms.TextBox();
+            this.txtModificarNombre = new System.Windows.Forms.TextBox();
+            this.txtModificarEdad = new System.Windows.Forms.TextBox();
+            this.txtModificarSalario = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtModificarDireccion = new System.Windows.Forms.TextBox();
+            this.txtModificarGenero = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtModificarCedula = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtModificarFecha = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -105,17 +100,18 @@ namespace InventarioEmpresa
             this.label24 = new System.Windows.Forms.Label();
             this.tpEliminar = new System.Windows.Forms.TabPage();
             this.gbEliminarColaborador = new System.Windows.Forms.GroupBox();
+            this.txtIdEliminar = new System.Windows.Forms.TextBox();
             this.btnRegresarEliminar = new System.Windows.Forms.Button();
             this.btnConsultarEliminar = new System.Windows.Forms.Button();
             this.btnElimianar = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtEliminarCedula = new System.Windows.Forms.TextBox();
+            this.txtEliminarGenero = new System.Windows.Forms.TextBox();
+            this.txtEliminarEdad = new System.Windows.Forms.TextBox();
+            this.txtEliminarPuesto = new System.Windows.Forms.TextBox();
+            this.txtEliminarSalario = new System.Windows.Forms.TextBox();
+            this.txtEliminarDireccion = new System.Windows.Forms.TextBox();
+            this.txtEliminarFecha = new System.Windows.Forms.TextBox();
+            this.txtEliminarNombre = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -132,6 +128,7 @@ namespace InventarioEmpresa
             this.gbDatosPersonales.SuspendLayout();
             this.tpConsultar.SuspendLayout();
             this.gbConsultarColaborador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).BeginInit();
             this.tpModificar.SuspendLayout();
             this.gbModificarColaborador.SuspendLayout();
             this.tpEliminar.SuspendLayout();
@@ -487,24 +484,9 @@ namespace InventarioEmpresa
             // 
             // gbConsultarColaborador
             // 
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarCedula);
-            this.gbConsultarColaborador.Controls.Add(this.label20);
+            this.gbConsultarColaborador.Controls.Add(this.dgvColaboradores);
             this.gbConsultarColaborador.Controls.Add(this.btnConsultar);
             this.gbConsultarColaborador.Controls.Add(this.btnRegresarConsultar);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarPuesto);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarGenero);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarEdad);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarSalario);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarFecha);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarDireccion);
-            this.gbConsultarColaborador.Controls.Add(this.txtConsultarNombre);
-            this.gbConsultarColaborador.Controls.Add(this.label19);
-            this.gbConsultarColaborador.Controls.Add(this.label18);
-            this.gbConsultarColaborador.Controls.Add(this.label17);
-            this.gbConsultarColaborador.Controls.Add(this.label16);
-            this.gbConsultarColaborador.Controls.Add(this.label15);
-            this.gbConsultarColaborador.Controls.Add(this.label14);
-            this.gbConsultarColaborador.Controls.Add(this.label13);
             this.gbConsultarColaborador.Controls.Add(this.label12);
             this.gbConsultarColaborador.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbConsultarColaborador.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -515,31 +497,92 @@ namespace InventarioEmpresa
             this.gbConsultarColaborador.TabStop = false;
             this.gbConsultarColaborador.Text = "Consultar Colaborador";
             // 
-            // txtConsultarCedula
+            // dgvColaboradores
             // 
-            this.txtConsultarCedula.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarCedula.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarCedula.Location = new System.Drawing.Point(454, 73);
-            this.txtConsultarCedula.Name = "txtConsultarCedula";
-            this.txtConsultarCedula.Size = new System.Drawing.Size(175, 22);
-            this.txtConsultarCedula.TabIndex = 18;
+            this.dgvColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvColaboradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Cedula,
+            this.Nombre,
+            this.Edad,
+            this.FechaNacimiento,
+            this.Genero,
+            this.Direccion,
+            this.Puesto,
+            this.Salario});
+            this.dgvColaboradores.Location = new System.Drawing.Point(5, 81);
+            this.dgvColaboradores.Name = "dgvColaboradores";
+            this.dgvColaboradores.Size = new System.Drawing.Size(658, 278);
+            this.dgvColaboradores.TabIndex = 17;
             // 
-            // label20
+            // ID
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(402, 79);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(50, 17);
-            this.label20.TabIndex = 17;
-            this.label20.Text = "Cédula:";
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
+            // 
+            // Cedula
+            // 
+            this.Cedula.DataPropertyName = "Cedula";
+            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.Width = 75;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
+            // 
+            // Edad
+            // 
+            this.Edad.DataPropertyName = "Edad";
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.Width = 50;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
+            this.FechaNacimiento.HeaderText = "FechaNacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.Width = 115;
+            // 
+            // Genero
+            // 
+            this.Genero.DataPropertyName = "Genero";
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.Width = 75;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            // 
+            // Puesto
+            // 
+            this.Puesto.DataPropertyName = "Puesto";
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            this.Puesto.Width = 75;
+            // 
+            // Salario
+            // 
+            this.Salario.DataPropertyName = "Salario";
+            this.Salario.HeaderText = "Salario";
+            this.Salario.Name = "Salario";
+            this.Salario.Width = 75;
             // 
             // btnConsultar
             // 
             this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnConsultar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(464, 373);
+            this.btnConsultar.Location = new System.Drawing.Point(490, 383);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(97, 33);
             this.btnConsultar.TabIndex = 16;
@@ -551,7 +594,7 @@ namespace InventarioEmpresa
             this.btnRegresarConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRegresarConsultar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresarConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarConsultar.Location = new System.Drawing.Point(60, 373);
+            this.btnRegresarConsultar.Location = new System.Drawing.Point(70, 383);
             this.btnRegresarConsultar.Name = "btnRegresarConsultar";
             this.btnRegresarConsultar.Size = new System.Drawing.Size(97, 33);
             this.btnRegresarConsultar.TabIndex = 15;
@@ -559,148 +602,15 @@ namespace InventarioEmpresa
             this.btnRegresarConsultar.UseVisualStyleBackColor = false;
             this.btnRegresarConsultar.Click += new System.EventHandler(this.btnRegresarConsultar_Click);
             // 
-            // txtConsultarPuesto
-            // 
-            this.txtConsultarPuesto.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarPuesto.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarPuesto.Location = new System.Drawing.Point(454, 314);
-            this.txtConsultarPuesto.Name = "txtConsultarPuesto";
-            this.txtConsultarPuesto.Size = new System.Drawing.Size(175, 22);
-            this.txtConsultarPuesto.TabIndex = 14;
-            // 
-            // txtConsultarGenero
-            // 
-            this.txtConsultarGenero.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarGenero.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarGenero.Location = new System.Drawing.Point(454, 149);
-            this.txtConsultarGenero.Name = "txtConsultarGenero";
-            this.txtConsultarGenero.Size = new System.Drawing.Size(175, 22);
-            this.txtConsultarGenero.TabIndex = 13;
-            // 
-            // txtConsultarEdad
-            // 
-            this.txtConsultarEdad.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarEdad.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarEdad.Location = new System.Drawing.Point(454, 229);
-            this.txtConsultarEdad.Name = "txtConsultarEdad";
-            this.txtConsultarEdad.Size = new System.Drawing.Size(175, 22);
-            this.txtConsultarEdad.TabIndex = 12;
-            // 
-            // txtConsultarSalario
-            // 
-            this.txtConsultarSalario.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarSalario.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarSalario.Location = new System.Drawing.Point(173, 316);
-            this.txtConsultarSalario.Name = "txtConsultarSalario";
-            this.txtConsultarSalario.Size = new System.Drawing.Size(178, 22);
-            this.txtConsultarSalario.TabIndex = 11;
-            // 
-            // txtConsultarFecha
-            // 
-            this.txtConsultarFecha.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarFecha.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarFecha.Location = new System.Drawing.Point(173, 147);
-            this.txtConsultarFecha.Name = "txtConsultarFecha";
-            this.txtConsultarFecha.Size = new System.Drawing.Size(178, 22);
-            this.txtConsultarFecha.TabIndex = 10;
-            // 
-            // txtConsultarDireccion
-            // 
-            this.txtConsultarDireccion.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarDireccion.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarDireccion.Location = new System.Drawing.Point(173, 229);
-            this.txtConsultarDireccion.Name = "txtConsultarDireccion";
-            this.txtConsultarDireccion.Size = new System.Drawing.Size(178, 22);
-            this.txtConsultarDireccion.TabIndex = 9;
-            // 
-            // txtConsultarNombre
-            // 
-            this.txtConsultarNombre.BackColor = System.Drawing.SystemColors.Info;
-            this.txtConsultarNombre.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultarNombre.Location = new System.Drawing.Point(173, 75);
-            this.txtConsultarNombre.Name = "txtConsultarNombre";
-            this.txtConsultarNombre.Size = new System.Drawing.Size(178, 22);
-            this.txtConsultarNombre.TabIndex = 8;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(18, 318);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 17);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Salario:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(402, 320);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 17);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Puesto:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(18, 233);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 17);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Direción:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(402, 151);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 17);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Género:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(18, 151);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(129, 17);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Fecha de nacimiento:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(402, 233);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 17);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Edad:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(18, 79);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 17);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Nombre del colaborador:";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("HP Simplified", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(137, 30);
+            this.label12.Font = new System.Drawing.Font("HP Simplified", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(165, 34);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(401, 18);
+            this.label12.Size = new System.Drawing.Size(320, 22);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Ingrese el nombre completo del colaborador que desea consultar";
+            this.label12.Text = "Tabla de consultas de los colaboradores.";
             // 
             // tpModificar
             // 
@@ -714,21 +624,22 @@ namespace InventarioEmpresa
             // 
             // gbModificarColaborador
             // 
+            this.gbModificarColaborador.Controls.Add(this.txtIdModificar);
             this.gbModificarColaborador.Controls.Add(this.btnConsultarModificar);
             this.gbModificarColaborador.Controls.Add(this.label21);
             this.gbModificarColaborador.Controls.Add(this.btnModificar);
             this.gbModificarColaborador.Controls.Add(this.btnRegresarModificar);
-            this.gbModificarColaborador.Controls.Add(this.textBox8);
-            this.gbModificarColaborador.Controls.Add(this.textBox1);
-            this.gbModificarColaborador.Controls.Add(this.textBox7);
-            this.gbModificarColaborador.Controls.Add(this.textBox4);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarPuesto);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarNombre);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarEdad);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarSalario);
             this.gbModificarColaborador.Controls.Add(this.label22);
-            this.gbModificarColaborador.Controls.Add(this.textBox3);
-            this.gbModificarColaborador.Controls.Add(this.textBox6);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarDireccion);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarGenero);
             this.gbModificarColaborador.Controls.Add(this.label26);
-            this.gbModificarColaborador.Controls.Add(this.textBox5);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarCedula);
             this.gbModificarColaborador.Controls.Add(this.label29);
-            this.gbModificarColaborador.Controls.Add(this.textBox2);
+            this.gbModificarColaborador.Controls.Add(this.txtModificarFecha);
             this.gbModificarColaborador.Controls.Add(this.label28);
             this.gbModificarColaborador.Controls.Add(this.label23);
             this.gbModificarColaborador.Controls.Add(this.label25);
@@ -743,33 +654,42 @@ namespace InventarioEmpresa
             this.gbModificarColaborador.TabStop = false;
             this.gbModificarColaborador.Text = "Modificar Colaborador";
             // 
+            // txtIdModificar
+            // 
+            this.txtIdModificar.BackColor = System.Drawing.SystemColors.Info;
+            this.txtIdModificar.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold);
+            this.txtIdModificar.Location = new System.Drawing.Point(336, 37);
+            this.txtIdModificar.Name = "txtIdModificar";
+            this.txtIdModificar.Size = new System.Drawing.Size(212, 22);
+            this.txtIdModificar.TabIndex = 20;
+            // 
             // btnConsultarModificar
             // 
             this.btnConsultarModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnConsultarModificar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarModificar.Location = new System.Drawing.Point(522, 385);
+            this.btnConsultarModificar.Location = new System.Drawing.Point(554, 32);
             this.btnConsultarModificar.Name = "btnConsultarModificar";
             this.btnConsultarModificar.Size = new System.Drawing.Size(97, 33);
             this.btnConsultarModificar.TabIndex = 19;
-            this.btnConsultarModificar.Text = "Consultar";
+            this.btnConsultarModificar.Text = "Buscar";
             this.btnConsultarModificar.UseVisualStyleBackColor = false;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("HP Simplified", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(130, 33);
+            this.label21.Location = new System.Drawing.Point(20, 41);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(402, 18);
+            this.label21.Size = new System.Drawing.Size(310, 18);
             this.label21.TabIndex = 0;
-            this.label21.Text = "Ingrese el número de cédula del colaborador que desea modificar";
+            this.label21.Text = "Ingrese el ID del colaborador que desea modificar:";
             // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnModificar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(287, 385);
+            this.btnModificar.Location = new System.Drawing.Point(490, 385);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(97, 33);
             this.btnModificar.TabIndex = 10;
@@ -781,7 +701,7 @@ namespace InventarioEmpresa
             this.btnRegresarModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRegresarModificar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresarModificar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarModificar.Location = new System.Drawing.Point(53, 385);
+            this.btnRegresarModificar.Location = new System.Drawing.Point(76, 385);
             this.btnRegresarModificar.Name = "btnRegresarModificar";
             this.btnRegresarModificar.Size = new System.Drawing.Size(97, 33);
             this.btnRegresarModificar.TabIndex = 9;
@@ -789,113 +709,113 @@ namespace InventarioEmpresa
             this.btnRegresarModificar.UseVisualStyleBackColor = false;
             this.btnRegresarModificar.Click += new System.EventHandler(this.btnRegresarModificar_Click);
             // 
-            // textBox8
+            // txtModificarPuesto
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox8.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(465, 298);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(170, 22);
-            this.textBox8.TabIndex = 18;
+            this.txtModificarPuesto.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarPuesto.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarPuesto.Location = new System.Drawing.Point(472, 309);
+            this.txtModificarPuesto.Name = "txtModificarPuesto";
+            this.txtModificarPuesto.Size = new System.Drawing.Size(170, 22);
+            this.txtModificarPuesto.TabIndex = 18;
             // 
-            // textBox1
+            // txtModificarNombre
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(183, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 22);
-            this.textBox1.TabIndex = 11;
+            this.txtModificarNombre.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarNombre.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarNombre.Location = new System.Drawing.Point(190, 99);
+            this.txtModificarNombre.Name = "txtModificarNombre";
+            this.txtModificarNombre.Size = new System.Drawing.Size(191, 22);
+            this.txtModificarNombre.TabIndex = 11;
             // 
-            // textBox7
+            // txtModificarEdad
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox7.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(463, 225);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(172, 22);
-            this.textBox7.TabIndex = 17;
+            this.txtModificarEdad.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarEdad.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarEdad.Location = new System.Drawing.Point(470, 236);
+            this.txtModificarEdad.Name = "txtModificarEdad";
+            this.txtModificarEdad.Size = new System.Drawing.Size(172, 22);
+            this.txtModificarEdad.TabIndex = 17;
             // 
-            // textBox4
+            // txtModificarSalario
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox4.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(181, 298);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 22);
-            this.textBox4.TabIndex = 14;
+            this.txtModificarSalario.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarSalario.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarSalario.Location = new System.Drawing.Point(188, 309);
+            this.txtModificarSalario.Name = "txtModificarSalario";
+            this.txtModificarSalario.Size = new System.Drawing.Size(191, 22);
+            this.txtModificarSalario.TabIndex = 14;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(19, 92);
+            this.label22.Location = new System.Drawing.Point(24, 103);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(149, 17);
             this.label22.TabIndex = 1;
             this.label22.Text = "Nombre del colaborador:";
             // 
-            // textBox3
+            // txtModificarDireccion
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(181, 225);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 22);
-            this.textBox3.TabIndex = 13;
+            this.txtModificarDireccion.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarDireccion.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarDireccion.Location = new System.Drawing.Point(188, 236);
+            this.txtModificarDireccion.Name = "txtModificarDireccion";
+            this.txtModificarDireccion.Size = new System.Drawing.Size(191, 22);
+            this.txtModificarDireccion.TabIndex = 13;
             // 
-            // textBox6
+            // txtModificarGenero
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox6.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(463, 160);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(172, 22);
-            this.textBox6.TabIndex = 16;
+            this.txtModificarGenero.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarGenero.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarGenero.Location = new System.Drawing.Point(470, 171);
+            this.txtModificarGenero.Name = "txtModificarGenero";
+            this.txtModificarGenero.Size = new System.Drawing.Size(172, 22);
+            this.txtModificarGenero.TabIndex = 16;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(409, 92);
+            this.label26.Location = new System.Drawing.Point(416, 103);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(50, 17);
             this.label26.TabIndex = 5;
             this.label26.Text = "Cédula:";
             // 
-            // textBox5
+            // txtModificarCedula
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox5.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(465, 88);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(172, 22);
-            this.textBox5.TabIndex = 15;
+            this.txtModificarCedula.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarCedula.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarCedula.Location = new System.Drawing.Point(472, 99);
+            this.txtModificarCedula.Name = "txtModificarCedula";
+            this.txtModificarCedula.Size = new System.Drawing.Size(172, 22);
+            this.txtModificarCedula.TabIndex = 15;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(407, 302);
+            this.label29.Location = new System.Drawing.Point(414, 313);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(52, 17);
             this.label29.TabIndex = 8;
             this.label29.Text = "Puesto:";
             // 
-            // textBox2
+            // txtModificarFecha
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(181, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 22);
-            this.textBox2.TabIndex = 12;
+            this.txtModificarFecha.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificarFecha.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModificarFecha.Location = new System.Drawing.Point(188, 171);
+            this.txtModificarFecha.Name = "txtModificarFecha";
+            this.txtModificarFecha.Size = new System.Drawing.Size(191, 22);
+            this.txtModificarFecha.TabIndex = 12;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(407, 229);
+            this.label28.Location = new System.Drawing.Point(414, 240);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(40, 17);
             this.label28.TabIndex = 7;
@@ -905,7 +825,7 @@ namespace InventarioEmpresa
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(17, 164);
+            this.label23.Location = new System.Drawing.Point(24, 175);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(129, 17);
             this.label23.TabIndex = 2;
@@ -915,7 +835,7 @@ namespace InventarioEmpresa
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(17, 302);
+            this.label25.Location = new System.Drawing.Point(24, 313);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(51, 17);
             this.label25.TabIndex = 4;
@@ -925,7 +845,7 @@ namespace InventarioEmpresa
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(407, 164);
+            this.label27.Location = new System.Drawing.Point(414, 175);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(53, 17);
             this.label27.TabIndex = 6;
@@ -935,7 +855,7 @@ namespace InventarioEmpresa
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(17, 229);
+            this.label24.Location = new System.Drawing.Point(24, 240);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 17);
             this.label24.TabIndex = 3;
@@ -953,17 +873,18 @@ namespace InventarioEmpresa
             // 
             // gbEliminarColaborador
             // 
+            this.gbEliminarColaborador.Controls.Add(this.txtIdEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnRegresarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnConsultarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnElimianar);
-            this.gbEliminarColaborador.Controls.Add(this.textBox16);
-            this.gbEliminarColaborador.Controls.Add(this.textBox15);
-            this.gbEliminarColaborador.Controls.Add(this.textBox14);
-            this.gbEliminarColaborador.Controls.Add(this.textBox13);
-            this.gbEliminarColaborador.Controls.Add(this.textBox12);
-            this.gbEliminarColaborador.Controls.Add(this.textBox11);
-            this.gbEliminarColaborador.Controls.Add(this.textBox10);
-            this.gbEliminarColaborador.Controls.Add(this.textBox9);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarCedula);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarGenero);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarEdad);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarPuesto);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarSalario);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarDireccion);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarFecha);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminarNombre);
             this.gbEliminarColaborador.Controls.Add(this.label38);
             this.gbEliminarColaborador.Controls.Add(this.label37);
             this.gbEliminarColaborador.Controls.Add(this.label36);
@@ -982,11 +903,19 @@ namespace InventarioEmpresa
             this.gbEliminarColaborador.TabStop = false;
             this.gbEliminarColaborador.Text = "Eliminar Colaborador";
             // 
+            // txtIdEliminar
+            // 
+            this.txtIdEliminar.BackColor = System.Drawing.SystemColors.Info;
+            this.txtIdEliminar.Location = new System.Drawing.Point(335, 36);
+            this.txtIdEliminar.Name = "txtIdEliminar";
+            this.txtIdEliminar.Size = new System.Drawing.Size(212, 23);
+            this.txtIdEliminar.TabIndex = 21;
+            // 
             // btnRegresarEliminar
             // 
             this.btnRegresarEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRegresarEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarEliminar.Location = new System.Drawing.Point(80, 395);
+            this.btnRegresarEliminar.Location = new System.Drawing.Point(76, 385);
             this.btnRegresarEliminar.Name = "btnRegresarEliminar";
             this.btnRegresarEliminar.Size = new System.Drawing.Size(97, 33);
             this.btnRegresarEliminar.TabIndex = 20;
@@ -998,101 +927,101 @@ namespace InventarioEmpresa
             // 
             this.btnConsultarEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnConsultarEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarEliminar.Location = new System.Drawing.Point(532, 395);
+            this.btnConsultarEliminar.Location = new System.Drawing.Point(557, 31);
             this.btnConsultarEliminar.Name = "btnConsultarEliminar";
             this.btnConsultarEliminar.Size = new System.Drawing.Size(97, 33);
             this.btnConsultarEliminar.TabIndex = 19;
-            this.btnConsultarEliminar.Text = "Consultar";
+            this.btnConsultarEliminar.Text = "Buscar";
             this.btnConsultarEliminar.UseVisualStyleBackColor = false;
             // 
             // btnElimianar
             // 
             this.btnElimianar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnElimianar.ForeColor = System.Drawing.Color.White;
-            this.btnElimianar.Location = new System.Drawing.Point(299, 395);
+            this.btnElimianar.Location = new System.Drawing.Point(490, 385);
             this.btnElimianar.Name = "btnElimianar";
             this.btnElimianar.Size = new System.Drawing.Size(97, 33);
             this.btnElimianar.TabIndex = 18;
             this.btnElimianar.Text = "Eliminar";
             this.btnElimianar.UseVisualStyleBackColor = false;
             // 
-            // textBox16
+            // txtEliminarCedula
             // 
-            this.textBox16.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox16.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(478, 87);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(176, 22);
-            this.textBox16.TabIndex = 16;
+            this.txtEliminarCedula.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarCedula.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarCedula.Location = new System.Drawing.Point(478, 98);
+            this.txtEliminarCedula.Name = "txtEliminarCedula";
+            this.txtEliminarCedula.Size = new System.Drawing.Size(176, 22);
+            this.txtEliminarCedula.TabIndex = 16;
             // 
-            // textBox15
+            // txtEliminarGenero
             // 
-            this.textBox15.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox15.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(478, 170);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(176, 22);
-            this.textBox15.TabIndex = 15;
+            this.txtEliminarGenero.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarGenero.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarGenero.Location = new System.Drawing.Point(478, 170);
+            this.txtEliminarGenero.Name = "txtEliminarGenero";
+            this.txtEliminarGenero.Size = new System.Drawing.Size(176, 22);
+            this.txtEliminarGenero.TabIndex = 15;
             // 
-            // textBox14
+            // txtEliminarEdad
             // 
-            this.textBox14.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox14.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(478, 248);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(176, 22);
-            this.textBox14.TabIndex = 14;
+            this.txtEliminarEdad.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarEdad.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarEdad.Location = new System.Drawing.Point(478, 235);
+            this.txtEliminarEdad.Name = "txtEliminarEdad";
+            this.txtEliminarEdad.Size = new System.Drawing.Size(176, 22);
+            this.txtEliminarEdad.TabIndex = 14;
             // 
-            // textBox13
+            // txtEliminarPuesto
             // 
-            this.textBox13.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox13.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(478, 330);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(176, 22);
-            this.textBox13.TabIndex = 13;
+            this.txtEliminarPuesto.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarPuesto.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarPuesto.Location = new System.Drawing.Point(478, 308);
+            this.txtEliminarPuesto.Name = "txtEliminarPuesto";
+            this.txtEliminarPuesto.Size = new System.Drawing.Size(176, 22);
+            this.txtEliminarPuesto.TabIndex = 13;
             // 
-            // textBox12
+            // txtEliminarSalario
             // 
-            this.textBox12.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox12.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(207, 330);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(178, 22);
-            this.textBox12.TabIndex = 12;
+            this.txtEliminarSalario.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarSalario.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarSalario.Location = new System.Drawing.Point(207, 308);
+            this.txtEliminarSalario.Name = "txtEliminarSalario";
+            this.txtEliminarSalario.Size = new System.Drawing.Size(178, 22);
+            this.txtEliminarSalario.TabIndex = 12;
             // 
-            // textBox11
+            // txtEliminarDireccion
             // 
-            this.textBox11.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox11.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(207, 248);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(178, 22);
-            this.textBox11.TabIndex = 11;
+            this.txtEliminarDireccion.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarDireccion.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarDireccion.Location = new System.Drawing.Point(207, 248);
+            this.txtEliminarDireccion.Name = "txtEliminarDireccion";
+            this.txtEliminarDireccion.Size = new System.Drawing.Size(178, 22);
+            this.txtEliminarDireccion.TabIndex = 11;
             // 
-            // textBox10
+            // txtEliminarFecha
             // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox10.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(207, 170);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(178, 22);
-            this.textBox10.TabIndex = 10;
+            this.txtEliminarFecha.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarFecha.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarFecha.Location = new System.Drawing.Point(207, 170);
+            this.txtEliminarFecha.Name = "txtEliminarFecha";
+            this.txtEliminarFecha.Size = new System.Drawing.Size(178, 22);
+            this.txtEliminarFecha.TabIndex = 10;
             // 
-            // textBox9
+            // txtEliminarNombre
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox9.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(207, 87);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(178, 22);
-            this.textBox9.TabIndex = 9;
+            this.txtEliminarNombre.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminarNombre.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEliminarNombre.Location = new System.Drawing.Point(207, 98);
+            this.txtEliminarNombre.Name = "txtEliminarNombre";
+            this.txtEliminarNombre.Size = new System.Drawing.Size(178, 22);
+            this.txtEliminarNombre.TabIndex = 9;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(411, 336);
+            this.label38.Location = new System.Drawing.Point(411, 313);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(52, 17);
             this.label38.TabIndex = 8;
@@ -1102,7 +1031,7 @@ namespace InventarioEmpresa
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(37, 336);
+            this.label37.Location = new System.Drawing.Point(24, 313);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(51, 17);
             this.label37.TabIndex = 7;
@@ -1112,7 +1041,7 @@ namespace InventarioEmpresa
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(411, 254);
+            this.label36.Location = new System.Drawing.Point(411, 240);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(40, 17);
             this.label36.TabIndex = 6;
@@ -1122,7 +1051,7 @@ namespace InventarioEmpresa
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(37, 254);
+            this.label35.Location = new System.Drawing.Point(24, 240);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(64, 17);
             this.label35.TabIndex = 5;
@@ -1132,7 +1061,7 @@ namespace InventarioEmpresa
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(411, 176);
+            this.label34.Location = new System.Drawing.Point(410, 175);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 17);
             this.label34.TabIndex = 4;
@@ -1142,7 +1071,7 @@ namespace InventarioEmpresa
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(37, 176);
+            this.label33.Location = new System.Drawing.Point(24, 175);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(129, 17);
             this.label33.TabIndex = 3;
@@ -1152,7 +1081,7 @@ namespace InventarioEmpresa
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(411, 93);
+            this.label32.Location = new System.Drawing.Point(411, 103);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(50, 17);
             this.label32.TabIndex = 2;
@@ -1162,7 +1091,7 @@ namespace InventarioEmpresa
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("HP Simplified", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(37, 93);
+            this.label31.Location = new System.Drawing.Point(26, 103);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(149, 17);
             this.label31.TabIndex = 1;
@@ -1172,11 +1101,11 @@ namespace InventarioEmpresa
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("HP Simplified", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(146, 38);
+            this.label30.Location = new System.Drawing.Point(26, 41);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(395, 18);
+            this.label30.Size = new System.Drawing.Size(303, 18);
             this.label30.TabIndex = 0;
-            this.label30.Text = "Ingrese el número de cédula del colaborador que desea eliminar";
+            this.label30.Text = "Ingrese el ID del colaborador que desea eliminar:";
             // 
             // FrmColaboradores
             // 
@@ -1203,6 +1132,7 @@ namespace InventarioEmpresa
             this.tpConsultar.ResumeLayout(false);
             this.gbConsultarColaborador.ResumeLayout(false);
             this.gbConsultarColaborador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).EndInit();
             this.tpModificar.ResumeLayout(false);
             this.gbModificarColaborador.ResumeLayout(false);
             this.gbModificarColaborador.PerformLayout();
@@ -1249,25 +1179,8 @@ namespace InventarioEmpresa
         private System.Windows.Forms.RadioButton rbMasculino;
         private System.Windows.Forms.Button btnRegresarRegistrar;
         private System.Windows.Forms.GroupBox gbConsultarColaborador;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtConsultarPuesto;
-        private System.Windows.Forms.TextBox txtConsultarGenero;
-        private System.Windows.Forms.TextBox txtConsultarEdad;
-        private System.Windows.Forms.TextBox txtConsultarSalario;
-        private System.Windows.Forms.TextBox txtConsultarFecha;
-        private System.Windows.Forms.TextBox txtConsultarDireccion;
-        private System.Windows.Forms.TextBox txtConsultarNombre;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnRegresarConsultar;
-        private System.Windows.Forms.TextBox txtConsultarCedula;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
@@ -1279,14 +1192,14 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRegresarModificar;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModificarPuesto;
+        private System.Windows.Forms.TextBox txtModificarEdad;
+        private System.Windows.Forms.TextBox txtModificarGenero;
+        private System.Windows.Forms.TextBox txtModificarCedula;
+        private System.Windows.Forms.TextBox txtModificarSalario;
+        private System.Windows.Forms.TextBox txtModificarDireccion;
+        private System.Windows.Forms.TextBox txtModificarFecha;
+        private System.Windows.Forms.TextBox txtModificarNombre;
         private System.Windows.Forms.GroupBox gbModificarColaborador;
         private System.Windows.Forms.GroupBox gbEliminarColaborador;
         private System.Windows.Forms.Label label30;
@@ -1299,16 +1212,29 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtEliminarCedula;
+        private System.Windows.Forms.TextBox txtEliminarGenero;
+        private System.Windows.Forms.TextBox txtEliminarEdad;
+        private System.Windows.Forms.TextBox txtEliminarPuesto;
+        private System.Windows.Forms.TextBox txtEliminarSalario;
+        private System.Windows.Forms.TextBox txtEliminarDireccion;
+        private System.Windows.Forms.TextBox txtEliminarFecha;
+        private System.Windows.Forms.TextBox txtEliminarNombre;
         private System.Windows.Forms.Button btnConsultarEliminar;
         private System.Windows.Forms.Button btnElimianar;
         private System.Windows.Forms.Button btnRegresarEliminar;
+        private System.Windows.Forms.DataGridView dgvColaboradores;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
+        private System.Windows.Forms.TextBox txtIdModificar;
+        private System.Windows.Forms.TextBox txtIdEliminar;
     }
 }

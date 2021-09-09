@@ -31,7 +31,11 @@ namespace InventarioEmpresa
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBodega));
             this.gbContenedor = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBodega = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCantidadProducto = new System.Windows.Forms.TextBox();
             this.txtPrecioProducto = new System.Windows.Forms.TextBox();
@@ -40,19 +44,20 @@ namespace InventarioEmpresa
             this.lblCantidadProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.gbPanelBotones = new System.Windows.Forms.GroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCerrarBodega = new System.Windows.Forms.Button();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnModificarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.gbContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBodega)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbPanelBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbContenedor
             // 
-            this.gbContenedor.Controls.Add(this.dataGridView1);
+            this.gbContenedor.Controls.Add(this.dgvBodega);
             this.gbContenedor.Controls.Add(this.pictureBox1);
             this.gbContenedor.Controls.Add(this.txtCantidadProducto);
             this.gbContenedor.Controls.Add(this.txtPrecioProducto);
@@ -68,13 +73,50 @@ namespace InventarioEmpresa
             this.gbContenedor.TabStop = false;
             this.gbContenedor.Text = "Bodega";
             // 
-            // dataGridView1
+            // dgvBodega
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 200);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(464, 150);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvBodega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBodega.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nombre,
+            this.Precio,
+            this.Cantidad});
+            this.dgvBodega.Location = new System.Drawing.Point(29, 200);
+            this.dgvBodega.Name = "dgvBodega";
+            this.dgvBodega.Size = new System.Drawing.Size(464, 150);
+            this.dgvBodega.TabIndex = 7;
+            this.dgvBodega.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBodega_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ID.Width = 75;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre Producto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nombre.Width = 145;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 75;
+            this.Precio.Name = "Precio";
+            this.Precio.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // pictureBox1
             // 
@@ -145,6 +187,7 @@ namespace InventarioEmpresa
             // 
             // gbPanelBotones
             // 
+            this.gbPanelBotones.Controls.Add(this.btnLimpiar);
             this.gbPanelBotones.Controls.Add(this.btnCerrarBodega);
             this.gbPanelBotones.Controls.Add(this.btnEliminarProducto);
             this.gbPanelBotones.Controls.Add(this.btnModificarProducto);
@@ -156,6 +199,18 @@ namespace InventarioEmpresa
             this.gbPanelBotones.TabIndex = 1;
             this.gbPanelBotones.TabStop = false;
             this.gbPanelBotones.Text = "Panel";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Location = new System.Drawing.Point(37, 250);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(100, 30);
+            this.btnLimpiar.TabIndex = 4;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // btnCerrarBodega
             // 
@@ -175,7 +230,7 @@ namespace InventarioEmpresa
             this.btnEliminarProducto.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(37, 221);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(37, 173);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(100, 30);
             this.btnEliminarProducto.TabIndex = 2;
@@ -187,7 +242,7 @@ namespace InventarioEmpresa
             this.btnModificarProducto.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnModificarProducto.Location = new System.Drawing.Point(37, 133);
+            this.btnModificarProducto.Location = new System.Drawing.Point(37, 101);
             this.btnModificarProducto.Name = "btnModificarProducto";
             this.btnModificarProducto.Size = new System.Drawing.Size(100, 30);
             this.btnModificarProducto.TabIndex = 1;
@@ -199,12 +254,13 @@ namespace InventarioEmpresa
             this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(37, 44);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(37, 42);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(100, 30);
             this.btnAgregarProducto.TabIndex = 0;
             this.btnAgregarProducto.Text = "Agregar";
             this.btnAgregarProducto.UseVisualStyleBackColor = false;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // FrmBodega
             // 
@@ -221,9 +277,10 @@ namespace InventarioEmpresa
             this.Name = "FrmBodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manejo de inventario";
+            this.Load += new System.EventHandler(this.FrmBodega_Load);
             this.gbContenedor.ResumeLayout(false);
             this.gbContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbPanelBotones.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -240,12 +297,17 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblCantidadProducto;
         private System.Windows.Forms.Label lblNombreProducto;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBodega;
         private System.Windows.Forms.GroupBox gbPanelBotones;
         private System.Windows.Forms.Button btnCerrarBodega;
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnModificarProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }
 
