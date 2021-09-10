@@ -17,6 +17,10 @@ namespace InventarioEmpresa
             InitializeComponent();
         }
 
+        //Creacion de variables a nivel de instancia para realizar un Parse para poder pasar los datos a la base de datos Bodega.
+        int cantidad;
+        float precio;
+
         //Cuando se cargue nuevamente el formulario, este metodo refrescara el dgv para mostrar los datos al dia.
         private void FrmBodega_Load(object sender, EventArgs e)
         {
@@ -26,7 +30,6 @@ namespace InventarioEmpresa
         private void btnCerrarBodega_Click(object sender, EventArgs e)
         {
             //Llamado del menú principal para que la aplicación no se caiga al cerrar el formulario bodega.
-
             FrmMenuPrincipal fmp = new FrmMenuPrincipal();
 
             DialogResult opcion = MessageBox.Show("¿Seguro que desea salir del manejo de bodega?", "Advertencia", MessageBoxButtons.YesNo);
@@ -80,8 +83,8 @@ namespace InventarioEmpresa
                     MessageBoxIcon.Error);
             } else
             {
-                int cantidad = int.Parse(txtCantidadProducto.Text);
-                float precio = float.Parse(txtPrecioProducto.Text);
+                cantidad = int.Parse(txtCantidadProducto.Text);
+                precio = float.Parse(txtPrecioProducto.Text);
 
                 using (BdAplicacionEmpresa ae = new BdAplicacionEmpresa())
                 {
@@ -105,6 +108,74 @@ namespace InventarioEmpresa
                 actualizaDgv();
                 limpiarDatos();
             }
+        }
+
+        //Se crea el metodo que se encargara de modificar los datos existentes.
+        private void btnModificarProducto_Click(object sender, EventArgs e)
+        {
+            //Se debe de crear una variable donde cargara el atributo ID del dgv para poder realizar busquedas por ID.
+            int id = int.Parse(dgvBodega.Rows[dgvBodega.CurrentRow.Index].Cells["ID"].Value.ToString());
+
+            //Se realiza el parseo de los texBox al tipo de dato, de la tabla bodega.
+            cantidad = int.Parse(txtCantidadProducto.Text);
+            precio = float.Parse(txtPrecioProducto.Text);
+
+            using (BdAplicacionEmpresa ae = new BdAplicacionEmpresa())
+            {
+                Bodega producto = new Bodega();
+
+                producto = ae.Bodega.Find(id);
+
+                producto.Nombre = txtNombreProducto.Text;
+                producto.Precio = precio;
+                producto.Cantidad = cantidad;
+
+                ae.Entry(producto).State = System.Data.Entity.EntityState.Modified;
+
+                ae.SaveChanges();
+            }
+
+            MessageBox.Show("Se han modificado los datos del producto de manera exitosa", "Modificación realizada", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            limpiarDatos();
+            actualizaDgv();
+        }
+
+        //Creacion del metodo encargado de eliminar los datos existentes.
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            //Se crea una variable que se utilizara para buscar el id correspondiente en la base de datos.
+            int? id = int.Parse(dgvBodega.Rows[dgvBodega.CurrentRow.Index].Cells["ID"].Value.ToString());
+
+            if (id != null)
+            {
+                DialogResult opcion = MessageBox.Show("¿Seguro que desea eliminar este producto?", "Advertencia", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (opcion == DialogResult.Yes)
+                {
+                    using (BdAplicacionEmpresa ae = new BdAplicacionEmpresa())
+                    {
+                        Bodega producto = ae.Bodega.Find(id);
+
+                        ae.Bodega.Remove(producto);
+
+                        ae.SaveChanges();
+                    }
+
+                    MessageBox.Show("Se ha eliminado el producto de manera correcta.", "Información", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                    actualizaDgv();
+                    limpiarDatos();
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarDatos();
         }
     }
 }

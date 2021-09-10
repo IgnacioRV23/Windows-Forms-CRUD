@@ -202,7 +202,7 @@ namespace InventarioEmpresa
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnLimpiar.BackColor = System.Drawing.Color.PaleVioletRed;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.Location = new System.Drawing.Point(37, 250);
@@ -211,6 +211,7 @@ namespace InventarioEmpresa
             this.btnLimpiar.TabIndex = 4;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCerrarBodega
             // 
@@ -227,7 +228,7 @@ namespace InventarioEmpresa
             // 
             // btnEliminarProducto
             // 
-            this.btnEliminarProducto.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnEliminarProducto.BackColor = System.Drawing.Color.SlateBlue;
             this.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarProducto.ForeColor = System.Drawing.Color.White;
             this.btnEliminarProducto.Location = new System.Drawing.Point(37, 173);
@@ -236,10 +237,11 @@ namespace InventarioEmpresa
             this.btnEliminarProducto.TabIndex = 2;
             this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.UseVisualStyleBackColor = false;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // btnModificarProducto
             // 
-            this.btnModificarProducto.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnModificarProducto.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificarProducto.ForeColor = System.Drawing.Color.White;
             this.btnModificarProducto.Location = new System.Drawing.Point(37, 101);
@@ -248,6 +250,7 @@ namespace InventarioEmpresa
             this.btnModificarProducto.TabIndex = 1;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.UseVisualStyleBackColor = false;
+            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
             // 
             // btnAgregarProducto
             // 
