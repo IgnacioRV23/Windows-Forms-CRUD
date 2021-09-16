@@ -31,6 +31,20 @@ namespace InventarioEmpresa
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmColaboradores));
             this.tcMenuColaboradores = new System.Windows.Forms.TabControl();
+            this.tpConsultar = new System.Windows.Forms.TabPage();
+            this.gbConsultarColaborador = new System.Windows.Forms.GroupBox();
+            this.dgvColaboradores = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRegresarConsultar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.tpRegistro = new System.Windows.Forms.TabPage();
             this.btnRegresarRegistrar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -47,7 +61,7 @@ namespace InventarioEmpresa
             this.cbRegistrarProvincia = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
-            this.txtRegistrarFecha = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtRegistrarEdad = new System.Windows.Forms.TextBox();
             this.txtRegistrarNombre = new System.Windows.Forms.TextBox();
             this.txtRegistrarCedula = new System.Windows.Forms.TextBox();
@@ -60,24 +74,9 @@ namespace InventarioEmpresa
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tpConsultar = new System.Windows.Forms.TabPage();
-            this.gbConsultarColaborador = new System.Windows.Forms.GroupBox();
-            this.dgvColaboradores = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Puesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnRegresarConsultar = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.tpModificar = new System.Windows.Forms.TabPage();
             this.gbModificarColaborador = new System.Windows.Forms.GroupBox();
-            this.txtIdModificar = new System.Windows.Forms.TextBox();
+            this.txtModificar = new System.Windows.Forms.TextBox();
             this.btnConsultarModificar = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -100,7 +99,7 @@ namespace InventarioEmpresa
             this.label24 = new System.Windows.Forms.Label();
             this.tpEliminar = new System.Windows.Forms.TabPage();
             this.gbEliminarColaborador = new System.Windows.Forms.GroupBox();
-            this.txtIdEliminar = new System.Windows.Forms.TextBox();
+            this.txtEliminar = new System.Windows.Forms.TextBox();
             this.btnRegresarEliminar = new System.Windows.Forms.Button();
             this.btnConsultarEliminar = new System.Windows.Forms.Button();
             this.btnElimianar = new System.Windows.Forms.Button();
@@ -121,24 +120,26 @@ namespace InventarioEmpresa
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tcMenuColaboradores.SuspendLayout();
+            this.tpConsultar.SuspendLayout();
+            this.gbConsultarColaborador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).BeginInit();
             this.tpRegistro.SuspendLayout();
             this.gbEmpresa.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbDatosPersonales.SuspendLayout();
-            this.tpConsultar.SuspendLayout();
-            this.gbConsultarColaborador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).BeginInit();
             this.tpModificar.SuspendLayout();
             this.gbModificarColaborador.SuspendLayout();
             this.tpEliminar.SuspendLayout();
             this.gbEliminarColaborador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMenuColaboradores
             // 
-            this.tcMenuColaboradores.Controls.Add(this.tpRegistro);
             this.tcMenuColaboradores.Controls.Add(this.tpConsultar);
+            this.tcMenuColaboradores.Controls.Add(this.tpRegistro);
             this.tcMenuColaboradores.Controls.Add(this.tpModificar);
             this.tcMenuColaboradores.Controls.Add(this.tpEliminar);
             this.tcMenuColaboradores.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -149,6 +150,135 @@ namespace InventarioEmpresa
             this.tcMenuColaboradores.SelectedIndex = 0;
             this.tcMenuColaboradores.Size = new System.Drawing.Size(683, 473);
             this.tcMenuColaboradores.TabIndex = 0;
+            // 
+            // tpConsultar
+            // 
+            this.tpConsultar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpConsultar.Controls.Add(this.gbConsultarColaborador);
+            this.tpConsultar.Location = new System.Drawing.Point(4, 23);
+            this.tpConsultar.Name = "tpConsultar";
+            this.tpConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConsultar.Size = new System.Drawing.Size(675, 446);
+            this.tpConsultar.TabIndex = 1;
+            this.tpConsultar.Text = "Consultar";
+            // 
+            // gbConsultarColaborador
+            // 
+            this.gbConsultarColaborador.Controls.Add(this.pictureBox1);
+            this.gbConsultarColaborador.Controls.Add(this.dgvColaboradores);
+            this.gbConsultarColaborador.Controls.Add(this.btnRegresarConsultar);
+            this.gbConsultarColaborador.Controls.Add(this.label12);
+            this.gbConsultarColaborador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbConsultarColaborador.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbConsultarColaborador.Location = new System.Drawing.Point(3, 3);
+            this.gbConsultarColaborador.Name = "gbConsultarColaborador";
+            this.gbConsultarColaborador.Size = new System.Drawing.Size(669, 440);
+            this.gbConsultarColaborador.TabIndex = 0;
+            this.gbConsultarColaborador.TabStop = false;
+            this.gbConsultarColaborador.Text = "Consultar Colaborador";
+            // 
+            // dgvColaboradores
+            // 
+            this.dgvColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvColaboradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Cedula,
+            this.Nombre,
+            this.Edad,
+            this.FechaNacimiento,
+            this.Genero,
+            this.Direccion,
+            this.Puesto,
+            this.Salario});
+            this.dgvColaboradores.Location = new System.Drawing.Point(5, 81);
+            this.dgvColaboradores.Name = "dgvColaboradores";
+            this.dgvColaboradores.Size = new System.Drawing.Size(658, 270);
+            this.dgvColaboradores.TabIndex = 17;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
+            // 
+            // Cedula
+            // 
+            this.Cedula.DataPropertyName = "Cedula";
+            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.Width = 75;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
+            // 
+            // Edad
+            // 
+            this.Edad.DataPropertyName = "Edad";
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.Width = 50;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
+            this.FechaNacimiento.HeaderText = "FechaNacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.Width = 115;
+            // 
+            // Genero
+            // 
+            this.Genero.DataPropertyName = "Genero";
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.Width = 70;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            // 
+            // Puesto
+            // 
+            this.Puesto.DataPropertyName = "Puesto";
+            this.Puesto.HeaderText = "Puesto";
+            this.Puesto.Name = "Puesto";
+            this.Puesto.Width = 70;
+            // 
+            // Salario
+            // 
+            this.Salario.DataPropertyName = "Salario";
+            this.Salario.HeaderText = "Salario";
+            this.Salario.Name = "Salario";
+            this.Salario.Width = 70;
+            // 
+            // btnRegresarConsultar
+            // 
+            this.btnRegresarConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegresarConsultar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresarConsultar.ForeColor = System.Drawing.Color.White;
+            this.btnRegresarConsultar.Location = new System.Drawing.Point(65, 378);
+            this.btnRegresarConsultar.Name = "btnRegresarConsultar";
+            this.btnRegresarConsultar.Size = new System.Drawing.Size(97, 33);
+            this.btnRegresarConsultar.TabIndex = 15;
+            this.btnRegresarConsultar.Text = "Menú Principal";
+            this.btnRegresarConsultar.UseVisualStyleBackColor = false;
+            this.btnRegresarConsultar.Click += new System.EventHandler(this.btnRegresarConsultar_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("HP Simplified", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(165, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(320, 22);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Tabla de consultas de los colaboradores.";
             // 
             // tpRegistro
             // 
@@ -190,6 +320,7 @@ namespace InventarioEmpresa
             this.btnRegistrar.TabIndex = 12;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // gbEmpresa
             // 
@@ -302,6 +433,14 @@ namespace InventarioEmpresa
             this.cbRegistrarProvincia.BackColor = System.Drawing.Color.AliceBlue;
             this.cbRegistrarProvincia.Font = new System.Drawing.Font("HP Simplified", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRegistrarProvincia.FormattingEnabled = true;
+            this.cbRegistrarProvincia.Items.AddRange(new object[] {
+            "San José",
+            "Heredia",
+            "Alajuela",
+            "Guanacaste",
+            "Puntarenas",
+            "Limón",
+            "Cartago"});
             this.cbRegistrarProvincia.Location = new System.Drawing.Point(130, 32);
             this.cbRegistrarProvincia.Name = "cbRegistrarProvincia";
             this.cbRegistrarProvincia.Size = new System.Drawing.Size(121, 21);
@@ -319,7 +458,7 @@ namespace InventarioEmpresa
             // 
             // gbDatosPersonales
             // 
-            this.gbDatosPersonales.Controls.Add(this.txtRegistrarFecha);
+            this.gbDatosPersonales.Controls.Add(this.dtpFecha);
             this.gbDatosPersonales.Controls.Add(this.txtRegistrarEdad);
             this.gbDatosPersonales.Controls.Add(this.txtRegistrarNombre);
             this.gbDatosPersonales.Controls.Add(this.txtRegistrarCedula);
@@ -339,14 +478,15 @@ namespace InventarioEmpresa
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos Personales";
             // 
-            // txtRegistrarFecha
+            // dtpFecha
             // 
-            this.txtRegistrarFecha.BackColor = System.Drawing.Color.AliceBlue;
-            this.txtRegistrarFecha.Font = new System.Drawing.Font("HP Simplified", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistrarFecha.Location = new System.Drawing.Point(172, 210);
-            this.txtRegistrarFecha.Name = "txtRegistrarFecha";
-            this.txtRegistrarFecha.Size = new System.Drawing.Size(159, 21);
-            this.txtRegistrarFecha.TabIndex = 13;
+            this.dtpFecha.CustomFormat = "dd, MM, yyyy";
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFecha.Location = new System.Drawing.Point(171, 208);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(159, 23);
+            this.dtpFecha.TabIndex = 15;
+            this.dtpFecha.Value = new System.DateTime(2021, 9, 15, 0, 0, 0, 0);
             // 
             // txtRegistrarEdad
             // 
@@ -471,147 +611,6 @@ namespace InventarioEmpresa
             this.label1.TabIndex = 0;
             this.label1.Text = "Registro de un nuevo colaborador";
             // 
-            // tpConsultar
-            // 
-            this.tpConsultar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tpConsultar.Controls.Add(this.gbConsultarColaborador);
-            this.tpConsultar.Location = new System.Drawing.Point(4, 23);
-            this.tpConsultar.Name = "tpConsultar";
-            this.tpConsultar.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConsultar.Size = new System.Drawing.Size(675, 446);
-            this.tpConsultar.TabIndex = 1;
-            this.tpConsultar.Text = "Consultar";
-            // 
-            // gbConsultarColaborador
-            // 
-            this.gbConsultarColaborador.Controls.Add(this.dgvColaboradores);
-            this.gbConsultarColaborador.Controls.Add(this.btnConsultar);
-            this.gbConsultarColaborador.Controls.Add(this.btnRegresarConsultar);
-            this.gbConsultarColaborador.Controls.Add(this.label12);
-            this.gbConsultarColaborador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbConsultarColaborador.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbConsultarColaborador.Location = new System.Drawing.Point(3, 3);
-            this.gbConsultarColaborador.Name = "gbConsultarColaborador";
-            this.gbConsultarColaborador.Size = new System.Drawing.Size(669, 440);
-            this.gbConsultarColaborador.TabIndex = 0;
-            this.gbConsultarColaborador.TabStop = false;
-            this.gbConsultarColaborador.Text = "Consultar Colaborador";
-            // 
-            // dgvColaboradores
-            // 
-            this.dgvColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvColaboradores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Cedula,
-            this.Nombre,
-            this.Edad,
-            this.FechaNacimiento,
-            this.Genero,
-            this.Direccion,
-            this.Puesto,
-            this.Salario});
-            this.dgvColaboradores.Location = new System.Drawing.Point(5, 81);
-            this.dgvColaboradores.Name = "dgvColaboradores";
-            this.dgvColaboradores.Size = new System.Drawing.Size(658, 278);
-            this.dgvColaboradores.TabIndex = 17;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 50;
-            // 
-            // Cedula
-            // 
-            this.Cedula.DataPropertyName = "Cedula";
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.Width = 75;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
-            // 
-            // Edad
-            // 
-            this.Edad.DataPropertyName = "Edad";
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            this.Edad.Width = 50;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
-            this.FechaNacimiento.HeaderText = "FechaNacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.Width = 115;
-            // 
-            // Genero
-            // 
-            this.Genero.DataPropertyName = "Genero";
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.Width = 75;
-            // 
-            // Direccion
-            // 
-            this.Direccion.DataPropertyName = "Direccion";
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            // 
-            // Puesto
-            // 
-            this.Puesto.DataPropertyName = "Puesto";
-            this.Puesto.HeaderText = "Puesto";
-            this.Puesto.Name = "Puesto";
-            this.Puesto.Width = 75;
-            // 
-            // Salario
-            // 
-            this.Salario.DataPropertyName = "Salario";
-            this.Salario.HeaderText = "Salario";
-            this.Salario.Name = "Salario";
-            this.Salario.Width = 75;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnConsultar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(490, 383);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(97, 33);
-            this.btnConsultar.TabIndex = 16;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = false;
-            // 
-            // btnRegresarConsultar
-            // 
-            this.btnRegresarConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRegresarConsultar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresarConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarConsultar.Location = new System.Drawing.Point(70, 383);
-            this.btnRegresarConsultar.Name = "btnRegresarConsultar";
-            this.btnRegresarConsultar.Size = new System.Drawing.Size(97, 33);
-            this.btnRegresarConsultar.TabIndex = 15;
-            this.btnRegresarConsultar.Text = "Menú Principal";
-            this.btnRegresarConsultar.UseVisualStyleBackColor = false;
-            this.btnRegresarConsultar.Click += new System.EventHandler(this.btnRegresarConsultar_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("HP Simplified", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(165, 34);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(320, 22);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tabla de consultas de los colaboradores.";
-            // 
             // tpModificar
             // 
             this.tpModificar.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -624,7 +623,7 @@ namespace InventarioEmpresa
             // 
             // gbModificarColaborador
             // 
-            this.gbModificarColaborador.Controls.Add(this.txtIdModificar);
+            this.gbModificarColaborador.Controls.Add(this.txtModificar);
             this.gbModificarColaborador.Controls.Add(this.btnConsultarModificar);
             this.gbModificarColaborador.Controls.Add(this.label21);
             this.gbModificarColaborador.Controls.Add(this.btnModificar);
@@ -654,14 +653,14 @@ namespace InventarioEmpresa
             this.gbModificarColaborador.TabStop = false;
             this.gbModificarColaborador.Text = "Modificar Colaborador";
             // 
-            // txtIdModificar
+            // txtModificar
             // 
-            this.txtIdModificar.BackColor = System.Drawing.SystemColors.Info;
-            this.txtIdModificar.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold);
-            this.txtIdModificar.Location = new System.Drawing.Point(336, 37);
-            this.txtIdModificar.Name = "txtIdModificar";
-            this.txtIdModificar.Size = new System.Drawing.Size(212, 22);
-            this.txtIdModificar.TabIndex = 20;
+            this.txtModificar.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModificar.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold);
+            this.txtModificar.Location = new System.Drawing.Point(336, 37);
+            this.txtModificar.Name = "txtModificar";
+            this.txtModificar.Size = new System.Drawing.Size(212, 22);
+            this.txtModificar.TabIndex = 20;
             // 
             // btnConsultarModificar
             // 
@@ -873,7 +872,7 @@ namespace InventarioEmpresa
             // 
             // gbEliminarColaborador
             // 
-            this.gbEliminarColaborador.Controls.Add(this.txtIdEliminar);
+            this.gbEliminarColaborador.Controls.Add(this.txtEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnRegresarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnConsultarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnElimianar);
@@ -903,13 +902,13 @@ namespace InventarioEmpresa
             this.gbEliminarColaborador.TabStop = false;
             this.gbEliminarColaborador.Text = "Eliminar Colaborador";
             // 
-            // txtIdEliminar
+            // txtEliminar
             // 
-            this.txtIdEliminar.BackColor = System.Drawing.SystemColors.Info;
-            this.txtIdEliminar.Location = new System.Drawing.Point(335, 36);
-            this.txtIdEliminar.Name = "txtIdEliminar";
-            this.txtIdEliminar.Size = new System.Drawing.Size(212, 23);
-            this.txtIdEliminar.TabIndex = 21;
+            this.txtEliminar.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEliminar.Location = new System.Drawing.Point(335, 36);
+            this.txtEliminar.Name = "txtEliminar";
+            this.txtEliminar.Size = new System.Drawing.Size(212, 23);
+            this.txtEliminar.TabIndex = 21;
             // 
             // btnRegresarEliminar
             // 
@@ -1107,6 +1106,16 @@ namespace InventarioEmpresa
             this.label30.TabIndex = 0;
             this.label30.Text = "Ingrese el ID del colaborador que desea eliminar:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::InventarioEmpresa.Properties.Resources.lupa;
+            this.pictureBox1.Location = new System.Drawing.Point(481, 357);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1120,7 +1129,12 @@ namespace InventarioEmpresa
             this.Name = "FrmColaboradores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Colaboradores";
+            this.Load += new System.EventHandler(this.FrmColaboradores_Load);
             this.tcMenuColaboradores.ResumeLayout(false);
+            this.tpConsultar.ResumeLayout(false);
+            this.gbConsultarColaborador.ResumeLayout(false);
+            this.gbConsultarColaborador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).EndInit();
             this.tpRegistro.ResumeLayout(false);
             this.tpRegistro.PerformLayout();
             this.gbEmpresa.ResumeLayout(false);
@@ -1129,16 +1143,13 @@ namespace InventarioEmpresa
             this.groupBox1.PerformLayout();
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
-            this.tpConsultar.ResumeLayout(false);
-            this.gbConsultarColaborador.ResumeLayout(false);
-            this.gbConsultarColaborador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).EndInit();
             this.tpModificar.ResumeLayout(false);
             this.gbModificarColaborador.ResumeLayout(false);
             this.gbModificarColaborador.PerformLayout();
             this.tpEliminar.ResumeLayout(false);
             this.gbEliminarColaborador.ResumeLayout(false);
             this.gbEliminarColaborador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1168,9 +1179,7 @@ namespace InventarioEmpresa
         private System.Windows.Forms.TextBox txtRegistrarCanton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbRegistrarProvincia;
         private System.Windows.Forms.GroupBox gbDatosPersonales;
-        private System.Windows.Forms.TextBox txtRegistrarFecha;
         private System.Windows.Forms.TextBox txtRegistrarEdad;
         private System.Windows.Forms.TextBox txtRegistrarNombre;
         private System.Windows.Forms.TextBox txtRegistrarCedula;
@@ -1179,7 +1188,6 @@ namespace InventarioEmpresa
         private System.Windows.Forms.RadioButton rbMasculino;
         private System.Windows.Forms.Button btnRegresarRegistrar;
         private System.Windows.Forms.GroupBox gbConsultarColaborador;
-        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnRegresarConsultar;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label29;
@@ -1225,6 +1233,10 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Button btnRegresarEliminar;
         private System.Windows.Forms.DataGridView dgvColaboradores;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtModificar;
+        private System.Windows.Forms.TextBox txtEliminar;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.ComboBox cbRegistrarProvincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -1234,7 +1246,6 @@ namespace InventarioEmpresa
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
-        private System.Windows.Forms.TextBox txtIdModificar;
-        private System.Windows.Forms.TextBox txtIdEliminar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

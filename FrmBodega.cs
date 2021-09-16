@@ -173,6 +173,7 @@ namespace InventarioEmpresa
             }
         }
 
+        //Este metodo se encarga de limpiar los datos de los texbox mediante su correspondiente boton.
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarDatos();

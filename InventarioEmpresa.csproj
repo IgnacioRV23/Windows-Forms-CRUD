@@ -183,6 +183,7 @@
       <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
       <LastGenOutput>EntityAplicacionEmpresa.cs</LastGenOutput>
     </Content>
+    <None Include="imagenes\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
