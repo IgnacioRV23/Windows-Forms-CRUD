@@ -101,14 +101,13 @@ namespace InventarioEmpresa
             this.txtEliminar = new System.Windows.Forms.TextBox();
             this.btnRegresarEliminar = new System.Windows.Forms.Button();
             this.btnConsultarEliminar = new System.Windows.Forms.Button();
-            this.btnElimianar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtEliminarCedula = new System.Windows.Forms.TextBox();
             this.txtEliminarGenero = new System.Windows.Forms.TextBox();
             this.txtEliminarEdad = new System.Windows.Forms.TextBox();
             this.txtEliminarPuesto = new System.Windows.Forms.TextBox();
             this.txtEliminarSalario = new System.Windows.Forms.TextBox();
             this.txtEliminarDireccion = new System.Windows.Forms.TextBox();
-            this.txtEliminarFecha = new System.Windows.Forms.TextBox();
             this.txtEliminarNombre = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -123,6 +122,7 @@ namespace InventarioEmpresa
             this.btnLimpiarModificar = new System.Windows.Forms.Button();
             this.btnLimpiarEliminar = new System.Windows.Forms.Button();
             this.cbGenero = new System.Windows.Forms.ComboBox();
+            this.dtpEliminarFecha = new System.Windows.Forms.DateTimePicker();
             this.tcMenuColaboradores.SuspendLayout();
             this.tpConsultar.SuspendLayout();
             this.gbConsultarColaborador.SuspendLayout();
@@ -870,18 +870,18 @@ namespace InventarioEmpresa
             // 
             // gbEliminarColaborador
             // 
+            this.gbEliminarColaborador.Controls.Add(this.dtpEliminarFecha);
             this.gbEliminarColaborador.Controls.Add(this.btnLimpiarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnRegresarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnConsultarEliminar);
-            this.gbEliminarColaborador.Controls.Add(this.btnElimianar);
+            this.gbEliminarColaborador.Controls.Add(this.btnEliminar);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarCedula);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarGenero);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarEdad);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarPuesto);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarSalario);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarDireccion);
-            this.gbEliminarColaborador.Controls.Add(this.txtEliminarFecha);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminarNombre);
             this.gbEliminarColaborador.Controls.Add(this.label38);
             this.gbEliminarColaborador.Controls.Add(this.label37);
@@ -931,17 +931,20 @@ namespace InventarioEmpresa
             this.btnConsultarEliminar.TabIndex = 19;
             this.btnConsultarEliminar.Text = "Buscar";
             this.btnConsultarEliminar.UseVisualStyleBackColor = false;
+            this.btnConsultarEliminar.Click += new System.EventHandler(this.btnConsultarEliminar_Click);
             // 
-            // btnElimianar
+            // btnEliminar
             // 
-            this.btnElimianar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnElimianar.ForeColor = System.Drawing.Color.White;
-            this.btnElimianar.Location = new System.Drawing.Point(528, 385);
-            this.btnElimianar.Name = "btnElimianar";
-            this.btnElimianar.Size = new System.Drawing.Size(97, 33);
-            this.btnElimianar.TabIndex = 18;
-            this.btnElimianar.Text = "Eliminar";
-            this.btnElimianar.UseVisualStyleBackColor = false;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(528, 385);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(97, 33);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtEliminarCedula
             // 
@@ -949,6 +952,7 @@ namespace InventarioEmpresa
             this.txtEliminarCedula.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarCedula.Location = new System.Drawing.Point(478, 98);
             this.txtEliminarCedula.Name = "txtEliminarCedula";
+            this.txtEliminarCedula.ReadOnly = true;
             this.txtEliminarCedula.Size = new System.Drawing.Size(176, 22);
             this.txtEliminarCedula.TabIndex = 16;
             // 
@@ -958,6 +962,7 @@ namespace InventarioEmpresa
             this.txtEliminarGenero.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarGenero.Location = new System.Drawing.Point(478, 170);
             this.txtEliminarGenero.Name = "txtEliminarGenero";
+            this.txtEliminarGenero.ReadOnly = true;
             this.txtEliminarGenero.Size = new System.Drawing.Size(176, 22);
             this.txtEliminarGenero.TabIndex = 15;
             // 
@@ -967,6 +972,7 @@ namespace InventarioEmpresa
             this.txtEliminarEdad.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarEdad.Location = new System.Drawing.Point(478, 235);
             this.txtEliminarEdad.Name = "txtEliminarEdad";
+            this.txtEliminarEdad.ReadOnly = true;
             this.txtEliminarEdad.Size = new System.Drawing.Size(176, 22);
             this.txtEliminarEdad.TabIndex = 14;
             // 
@@ -976,6 +982,7 @@ namespace InventarioEmpresa
             this.txtEliminarPuesto.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarPuesto.Location = new System.Drawing.Point(478, 308);
             this.txtEliminarPuesto.Name = "txtEliminarPuesto";
+            this.txtEliminarPuesto.ReadOnly = true;
             this.txtEliminarPuesto.Size = new System.Drawing.Size(176, 22);
             this.txtEliminarPuesto.TabIndex = 13;
             // 
@@ -985,6 +992,7 @@ namespace InventarioEmpresa
             this.txtEliminarSalario.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarSalario.Location = new System.Drawing.Point(207, 308);
             this.txtEliminarSalario.Name = "txtEliminarSalario";
+            this.txtEliminarSalario.ReadOnly = true;
             this.txtEliminarSalario.Size = new System.Drawing.Size(178, 22);
             this.txtEliminarSalario.TabIndex = 12;
             // 
@@ -994,17 +1002,9 @@ namespace InventarioEmpresa
             this.txtEliminarDireccion.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarDireccion.Location = new System.Drawing.Point(207, 248);
             this.txtEliminarDireccion.Name = "txtEliminarDireccion";
+            this.txtEliminarDireccion.ReadOnly = true;
             this.txtEliminarDireccion.Size = new System.Drawing.Size(178, 22);
             this.txtEliminarDireccion.TabIndex = 11;
-            // 
-            // txtEliminarFecha
-            // 
-            this.txtEliminarFecha.BackColor = System.Drawing.SystemColors.Info;
-            this.txtEliminarFecha.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEliminarFecha.Location = new System.Drawing.Point(207, 170);
-            this.txtEliminarFecha.Name = "txtEliminarFecha";
-            this.txtEliminarFecha.Size = new System.Drawing.Size(178, 22);
-            this.txtEliminarFecha.TabIndex = 10;
             // 
             // txtEliminarNombre
             // 
@@ -1012,6 +1012,7 @@ namespace InventarioEmpresa
             this.txtEliminarNombre.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminarNombre.Location = new System.Drawing.Point(207, 98);
             this.txtEliminarNombre.Name = "txtEliminarNombre";
+            this.txtEliminarNombre.ReadOnly = true;
             this.txtEliminarNombre.Size = new System.Drawing.Size(178, 22);
             this.txtEliminarNombre.TabIndex = 9;
             // 
@@ -1139,6 +1140,7 @@ namespace InventarioEmpresa
             this.btnLimpiarEliminar.TabIndex = 22;
             this.btnLimpiarEliminar.Text = "Limpiar Datos";
             this.btnLimpiarEliminar.UseVisualStyleBackColor = false;
+            this.btnLimpiarEliminar.Click += new System.EventHandler(this.btnLimpiarEliminar_Click);
             // 
             // cbGenero
             // 
@@ -1156,6 +1158,16 @@ namespace InventarioEmpresa
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(170, 25);
             this.cbGenero.TabIndex = 23;
+            // 
+            // dtpEliminarFecha
+            // 
+            this.dtpEliminarFecha.CustomFormat = "dd, MM, yyyy";
+            this.dtpEliminarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEliminarFecha.Location = new System.Drawing.Point(207, 168);
+            this.dtpEliminarFecha.Name = "dtpEliminarFecha";
+            this.dtpEliminarFecha.Size = new System.Drawing.Size(178, 23);
+            this.dtpEliminarFecha.TabIndex = 23;
+            this.dtpEliminarFecha.Value = new System.DateTime(2021, 9, 21, 0, 0, 0, 0);
             // 
             // FrmColaboradores
             // 
@@ -1265,10 +1277,9 @@ namespace InventarioEmpresa
         private System.Windows.Forms.TextBox txtEliminarPuesto;
         private System.Windows.Forms.TextBox txtEliminarSalario;
         private System.Windows.Forms.TextBox txtEliminarDireccion;
-        private System.Windows.Forms.TextBox txtEliminarFecha;
         private System.Windows.Forms.TextBox txtEliminarNombre;
         private System.Windows.Forms.Button btnConsultarEliminar;
-        private System.Windows.Forms.Button btnElimianar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnRegresarEliminar;
         private System.Windows.Forms.DataGridView dgvColaboradores;
         private System.Windows.Forms.Label label12;
@@ -1290,5 +1301,6 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Button btnLimpiarModificar;
         private System.Windows.Forms.Button btnLimpiarEliminar;
         private System.Windows.Forms.ComboBox cbGenero;
+        private System.Windows.Forms.DateTimePicker dtpEliminarFecha;
     }
 }

@@ -31,7 +31,7 @@ namespace InventarioEmpresa
             String contrasena = txtContrasena.Text;
 
             //Codificacion del ingreso de la contraseña y usuario con sus respectivas validaciones.
-            if (usuario.Equals("") && contrasena.Equals(""))
+            if (usuario.Equals("admin") && contrasena.Equals("admin"))
             {
                 MessageBox.Show("Bienvenido usuario!", "Ingreso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -106,6 +106,18 @@ namespace InventarioEmpresa
             txtModificarPuesto.Text = "";
         }
 
+        private void limpiarDatosEliminar()
+        {
+            txtEliminarNombre.Text = "";
+            dtpEliminarFecha.Value = DateTime.Now;
+            txtEliminarDireccion.Text = "";
+            txtEliminarSalario.Text = "";
+            txtEliminarCedula.Text = "";
+            txtEliminarGenero.Text = "";
+            txtEliminarEdad.Text = "";
+            txtEliminarPuesto.Text = "";
+        }
+
         //Creacion del metodo privado encargado de actualizar los datos del dgv.
         private void actualizaDgv()
         {
@@ -194,6 +206,7 @@ namespace InventarioEmpresa
         private void btnLimpiarModificar_Click(object sender, EventArgs e)
         {
             limpiarDatosModificar();
+            btnModificar.Visible = false;
         }
 
         //Esta variable se encargara de almacenar el id buscado por el usuario.
@@ -239,10 +252,21 @@ namespace InventarioEmpresa
         {
             try
             {
-                DialogResult opcion = MessageBox.Show("¿Seguro que desea modificar estos datos?", "Advertencia", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                //Creacion de una variable booleana que se encarga de realizar validacion para saber si entrar a una condicion o no.
+                Boolean validacion = true;
 
-                if (opcion == DialogResult.Yes)
+                DialogResult opcion = MessageBox.Show("¿Seguro que desea modificar estos datos?", "Advertencia", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (cbGenero.SelectedIndex == -1)
+                {
+                    validacion = false;
+
+                    MessageBox.Show("Error ingresando el tipo de género del colaborador.", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+                if (opcion == DialogResult.Yes && validacion == true)
                 {
                     //Se realiza el parse de las variables que la tabla colaboradores necesita.
                     double salario = double.Parse(txtModificarSalario.Text);
@@ -279,6 +303,81 @@ namespace InventarioEmpresa
             catch (Exception)
             {
                 MessageBox.Show("No se pudieron actualizar los datos del colaborador", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        //Metodo encargado de limpiar los txt de la pestaña eliminar.
+        private void btnLimpiarEliminar_Click(object sender, EventArgs e)
+        {
+            limpiarDatosEliminar();
+            btnEliminar.Visible = false;
+        }
+
+        //Metodo encargado de realizar la busqueda por codigo de los colaboradores y ingresarlos en los txt.
+        private void btnConsultarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                idBuscado = int.Parse(txtEliminar.Text);
+
+                using (BdAplicacionEmpresa ap = new BdAplicacionEmpresa())
+                {
+                    Colaboradores c = new Colaboradores();
+
+                    c = ap.Colaboradores.Find(idBuscado);
+
+                    txtEliminarNombre.Text = c.Nombre;
+                    dtpEliminarFecha.Value = c.FechaNacimiento;
+                    txtEliminarDireccion.Text = c.Direccion;
+                    txtEliminarSalario.Text = c.Salario.ToString();
+                    txtEliminarCedula.Text = c.Cedula;
+                    txtEliminarGenero.Text = c.Genero;
+                    txtEliminarEdad.Text = c.Edad.ToString();
+                    txtEliminarPuesto.Text = c.Puesto.ToString();
+                }
+                txtEliminar.Text = "";
+                btnEliminar.Visible = true;
+
+                MessageBox.Show("Se ha encontrado el colaborador de manera exitosa.", "Mensaje", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            } catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningún colaborador.", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try {
+                DialogResult opcion = MessageBox.Show("¿Seguro que desea eliminar este colaborador?", "Error", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                if(opcion == DialogResult.Yes)
+                {
+                    using (BdAplicacionEmpresa ap = new BdAplicacionEmpresa())
+                    {
+                        Colaboradores c = new Colaboradores();
+
+                        c = ap.Colaboradores.Find(idBuscado);
+
+                        ap.Colaboradores.Remove(c);
+
+                        ap.SaveChanges();
+                    }
+
+                    btnEliminar.Visible = false;
+                    actualizaDgv();
+                    limpiarDatosEliminar();
+
+                    MessageBox.Show("Se ha eliminado el colaborador de manera correcta.", "Información", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            } catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar el colaborador de manera correcta.", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
         }
