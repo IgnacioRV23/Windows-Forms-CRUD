@@ -33,6 +33,7 @@ namespace InventarioEmpresa
             this.tcMenuColaboradores = new System.Windows.Forms.TabControl();
             this.tpConsultar = new System.Windows.Forms.TabPage();
             this.gbConsultarColaborador = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvColaboradores = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,11 +88,9 @@ namespace InventarioEmpresa
             this.txtModificarSalario = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtModificarDireccion = new System.Windows.Forms.TextBox();
-            this.txtModificarGenero = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtModificarCedula = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtModificarFecha = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -120,10 +119,14 @@ namespace InventarioEmpresa
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpModificarFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnLimpiarModificar = new System.Windows.Forms.Button();
+            this.btnLimpiarEliminar = new System.Windows.Forms.Button();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
             this.tcMenuColaboradores.SuspendLayout();
             this.tpConsultar.SuspendLayout();
             this.gbConsultarColaborador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).BeginInit();
             this.tpRegistro.SuspendLayout();
             this.gbEmpresa.SuspendLayout();
@@ -133,7 +136,6 @@ namespace InventarioEmpresa
             this.gbModificarColaborador.SuspendLayout();
             this.tpEliminar.SuspendLayout();
             this.gbEliminarColaborador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMenuColaboradores
@@ -176,6 +178,16 @@ namespace InventarioEmpresa
             this.gbConsultarColaborador.TabIndex = 0;
             this.gbConsultarColaborador.TabStop = false;
             this.gbConsultarColaborador.Text = "Consultar Colaborador";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::InventarioEmpresa.Properties.Resources.lupa;
+            this.pictureBox1.Location = new System.Drawing.Point(481, 357);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // dgvColaboradores
             // 
@@ -623,6 +635,9 @@ namespace InventarioEmpresa
             // 
             // gbModificarColaborador
             // 
+            this.gbModificarColaborador.Controls.Add(this.cbGenero);
+            this.gbModificarColaborador.Controls.Add(this.btnLimpiarModificar);
+            this.gbModificarColaborador.Controls.Add(this.dtpModificarFecha);
             this.gbModificarColaborador.Controls.Add(this.txtModificar);
             this.gbModificarColaborador.Controls.Add(this.btnConsultarModificar);
             this.gbModificarColaborador.Controls.Add(this.label21);
@@ -634,11 +649,9 @@ namespace InventarioEmpresa
             this.gbModificarColaborador.Controls.Add(this.txtModificarSalario);
             this.gbModificarColaborador.Controls.Add(this.label22);
             this.gbModificarColaborador.Controls.Add(this.txtModificarDireccion);
-            this.gbModificarColaborador.Controls.Add(this.txtModificarGenero);
             this.gbModificarColaborador.Controls.Add(this.label26);
             this.gbModificarColaborador.Controls.Add(this.txtModificarCedula);
             this.gbModificarColaborador.Controls.Add(this.label29);
-            this.gbModificarColaborador.Controls.Add(this.txtModificarFecha);
             this.gbModificarColaborador.Controls.Add(this.label28);
             this.gbModificarColaborador.Controls.Add(this.label23);
             this.gbModificarColaborador.Controls.Add(this.label25);
@@ -672,6 +685,7 @@ namespace InventarioEmpresa
             this.btnConsultarModificar.TabIndex = 19;
             this.btnConsultarModificar.Text = "Buscar";
             this.btnConsultarModificar.UseVisualStyleBackColor = false;
+            this.btnConsultarModificar.Click += new System.EventHandler(this.btnConsultarModificar_Click);
             // 
             // label21
             // 
@@ -688,19 +702,21 @@ namespace InventarioEmpresa
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnModificar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(490, 385);
+            this.btnModificar.Location = new System.Drawing.Point(515, 385);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(97, 33);
             this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Visible = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRegresarModificar
             // 
             this.btnRegresarModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRegresarModificar.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresarModificar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarModificar.Location = new System.Drawing.Point(76, 385);
+            this.btnRegresarModificar.Location = new System.Drawing.Point(65, 385);
             this.btnRegresarModificar.Name = "btnRegresarModificar";
             this.btnRegresarModificar.Size = new System.Drawing.Size(97, 33);
             this.btnRegresarModificar.TabIndex = 9;
@@ -721,7 +737,7 @@ namespace InventarioEmpresa
             // 
             this.txtModificarNombre.BackColor = System.Drawing.SystemColors.Info;
             this.txtModificarNombre.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModificarNombre.Location = new System.Drawing.Point(190, 99);
+            this.txtModificarNombre.Location = new System.Drawing.Point(188, 99);
             this.txtModificarNombre.Name = "txtModificarNombre";
             this.txtModificarNombre.Size = new System.Drawing.Size(191, 22);
             this.txtModificarNombre.TabIndex = 11;
@@ -763,15 +779,6 @@ namespace InventarioEmpresa
             this.txtModificarDireccion.Size = new System.Drawing.Size(191, 22);
             this.txtModificarDireccion.TabIndex = 13;
             // 
-            // txtModificarGenero
-            // 
-            this.txtModificarGenero.BackColor = System.Drawing.SystemColors.Info;
-            this.txtModificarGenero.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModificarGenero.Location = new System.Drawing.Point(470, 171);
-            this.txtModificarGenero.Name = "txtModificarGenero";
-            this.txtModificarGenero.Size = new System.Drawing.Size(172, 22);
-            this.txtModificarGenero.TabIndex = 16;
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -800,15 +807,6 @@ namespace InventarioEmpresa
             this.label29.Size = new System.Drawing.Size(52, 17);
             this.label29.TabIndex = 8;
             this.label29.Text = "Puesto:";
-            // 
-            // txtModificarFecha
-            // 
-            this.txtModificarFecha.BackColor = System.Drawing.SystemColors.Info;
-            this.txtModificarFecha.Font = new System.Drawing.Font("HP Simplified", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModificarFecha.Location = new System.Drawing.Point(188, 171);
-            this.txtModificarFecha.Name = "txtModificarFecha";
-            this.txtModificarFecha.Size = new System.Drawing.Size(191, 22);
-            this.txtModificarFecha.TabIndex = 12;
             // 
             // label28
             // 
@@ -872,6 +870,7 @@ namespace InventarioEmpresa
             // 
             // gbEliminarColaborador
             // 
+            this.gbEliminarColaborador.Controls.Add(this.btnLimpiarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.txtEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnRegresarEliminar);
             this.gbEliminarColaborador.Controls.Add(this.btnConsultarEliminar);
@@ -914,7 +913,7 @@ namespace InventarioEmpresa
             // 
             this.btnRegresarEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRegresarEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresarEliminar.Location = new System.Drawing.Point(76, 385);
+            this.btnRegresarEliminar.Location = new System.Drawing.Point(56, 385);
             this.btnRegresarEliminar.Name = "btnRegresarEliminar";
             this.btnRegresarEliminar.Size = new System.Drawing.Size(97, 33);
             this.btnRegresarEliminar.TabIndex = 20;
@@ -937,7 +936,7 @@ namespace InventarioEmpresa
             // 
             this.btnElimianar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnElimianar.ForeColor = System.Drawing.Color.White;
-            this.btnElimianar.Location = new System.Drawing.Point(490, 385);
+            this.btnElimianar.Location = new System.Drawing.Point(528, 385);
             this.btnElimianar.Name = "btnElimianar";
             this.btnElimianar.Size = new System.Drawing.Size(97, 33);
             this.btnElimianar.TabIndex = 18;
@@ -1106,15 +1105,57 @@ namespace InventarioEmpresa
             this.label30.TabIndex = 0;
             this.label30.Text = "Ingrese el ID del colaborador que desea eliminar:";
             // 
-            // pictureBox1
+            // dtpModificarFecha
             // 
-            this.pictureBox1.Image = global::InventarioEmpresa.Properties.Resources.lupa;
-            this.pictureBox1.Location = new System.Drawing.Point(481, 357);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.dtpModificarFecha.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.dtpModificarFecha.CalendarTitleForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtpModificarFecha.CustomFormat = "dd, MM, yyyy";
+            this.dtpModificarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpModificarFecha.Location = new System.Drawing.Point(188, 171);
+            this.dtpModificarFecha.Name = "dtpModificarFecha";
+            this.dtpModificarFecha.Size = new System.Drawing.Size(191, 23);
+            this.dtpModificarFecha.TabIndex = 21;
+            this.dtpModificarFecha.Value = new System.DateTime(2021, 9, 21, 0, 0, 0, 0);
+            // 
+            // btnLimpiarModificar
+            // 
+            this.btnLimpiarModificar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnLimpiarModificar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarModificar.Location = new System.Drawing.Point(295, 385);
+            this.btnLimpiarModificar.Name = "btnLimpiarModificar";
+            this.btnLimpiarModificar.Size = new System.Drawing.Size(97, 33);
+            this.btnLimpiarModificar.TabIndex = 22;
+            this.btnLimpiarModificar.Text = "Limpiar Datos";
+            this.btnLimpiarModificar.UseVisualStyleBackColor = false;
+            this.btnLimpiarModificar.Click += new System.EventHandler(this.btnLimpiarModificar_Click);
+            // 
+            // btnLimpiarEliminar
+            // 
+            this.btnLimpiarEliminar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnLimpiarEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarEliminar.Location = new System.Drawing.Point(297, 385);
+            this.btnLimpiarEliminar.Name = "btnLimpiarEliminar";
+            this.btnLimpiarEliminar.Size = new System.Drawing.Size(97, 33);
+            this.btnLimpiarEliminar.TabIndex = 22;
+            this.btnLimpiarEliminar.Text = "Limpiar Datos";
+            this.btnLimpiarEliminar.UseVisualStyleBackColor = false;
+            // 
+            // cbGenero
+            // 
+            this.cbGenero.AutoCompleteCustomSource.AddRange(new string[] {
+            "Masculino",
+            "Femenino",
+            "Otro"});
+            this.cbGenero.BackColor = System.Drawing.SystemColors.Info;
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino",
+            "Otro"});
+            this.cbGenero.Location = new System.Drawing.Point(472, 167);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(170, 25);
+            this.cbGenero.TabIndex = 23;
             // 
             // FrmColaboradores
             // 
@@ -1134,6 +1175,7 @@ namespace InventarioEmpresa
             this.tpConsultar.ResumeLayout(false);
             this.gbConsultarColaborador.ResumeLayout(false);
             this.gbConsultarColaborador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColaboradores)).EndInit();
             this.tpRegistro.ResumeLayout(false);
             this.tpRegistro.PerformLayout();
@@ -1149,7 +1191,6 @@ namespace InventarioEmpresa
             this.tpEliminar.ResumeLayout(false);
             this.gbEliminarColaborador.ResumeLayout(false);
             this.gbEliminarColaborador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1202,11 +1243,9 @@ namespace InventarioEmpresa
         private System.Windows.Forms.Button btnRegresarModificar;
         private System.Windows.Forms.TextBox txtModificarPuesto;
         private System.Windows.Forms.TextBox txtModificarEdad;
-        private System.Windows.Forms.TextBox txtModificarGenero;
         private System.Windows.Forms.TextBox txtModificarCedula;
         private System.Windows.Forms.TextBox txtModificarSalario;
         private System.Windows.Forms.TextBox txtModificarDireccion;
-        private System.Windows.Forms.TextBox txtModificarFecha;
         private System.Windows.Forms.TextBox txtModificarNombre;
         private System.Windows.Forms.GroupBox gbModificarColaborador;
         private System.Windows.Forms.GroupBox gbEliminarColaborador;
@@ -1247,5 +1286,9 @@ namespace InventarioEmpresa
         private System.Windows.Forms.DataGridViewTextBoxColumn Puesto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salario;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker dtpModificarFecha;
+        private System.Windows.Forms.Button btnLimpiarModificar;
+        private System.Windows.Forms.Button btnLimpiarEliminar;
+        private System.Windows.Forms.ComboBox cbGenero;
     }
 }

@@ -59,6 +59,7 @@ namespace InventarioEmpresa
             //Se muestra el formulario de colaboradores.
             FrmColaboradores fc = new FrmColaboradores();
 
+            pc.mostrarProgreso();
             this.Visible = false;
             fc.Show();
         }

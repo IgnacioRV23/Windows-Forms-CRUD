@@ -77,7 +77,7 @@ namespace InventarioEmpresa
         }
 
         //Metodo que se encargara de limpiar todos los datos de los textBox.
-        private void limpiarDatos()
+        private void limpiarDatosRegistro()
         {
             txtRegistrarCedula.Text = "";
             txtRegistrarNombre.Text = "";
@@ -92,6 +92,18 @@ namespace InventarioEmpresa
             rbMasculino.Checked = false;
             rbFemenino.Checked = false;
             rbOtro.Checked = false;
+        }
+
+        private void limpiarDatosModificar()
+        {
+            txtModificarNombre.Text = "";
+            dtpModificarFecha.Value = DateTime.Now;
+            txtModificarDireccion.Text = "";
+            txtModificarSalario.Text = "";
+            txtModificarCedula.Text = "";
+            cbGenero.Text = "";
+            txtModificarEdad.Text = "";
+            txtModificarPuesto.Text = "";
         }
 
         //Creacion del metodo privado encargado de actualizar los datos del dgv.
@@ -174,8 +186,101 @@ namespace InventarioEmpresa
                     MessageBoxIcon.Information);
 
                 actualizaDgv();
-                limpiarDatos();
+                limpiarDatosRegistro();
             }
-        }   
+        }
+
+        //Este boton se encarga de limpiar los datos del txt del formulario que modifica los colaboradores.
+        private void btnLimpiarModificar_Click(object sender, EventArgs e)
+        {
+            limpiarDatosModificar();
+        }
+
+        //Esta variable se encargara de almacenar el id buscado por el usuario.
+        int idBuscado;
+
+        //Este metodo se encargara de buscar el id del colaborador y enviarlo a los texbox para poder modificar los datos.
+        private void btnConsultarModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                idBuscado = int.Parse(txtModificar.Text);
+
+                using (BdAplicacionEmpresa ap = new BdAplicacionEmpresa())
+                {
+                    Colaboradores c = new Colaboradores();
+
+                    c = ap.Colaboradores.Find(idBuscado);
+
+                    txtModificarNombre.Text = c.Nombre;
+                    dtpModificarFecha.Value = c.FechaNacimiento;
+                    txtModificarDireccion.Text = c.Direccion;
+                    txtModificarSalario.Text = c.Salario.ToString();
+                    txtModificarCedula.Text = c.Cedula;
+                    cbGenero.Text = c.Genero;
+                    txtModificarEdad.Text = c.Edad.ToString();
+                    txtModificarPuesto.Text = c.Puesto.ToString();
+                }
+
+                btnModificar.Visible = true;
+                txtModificar.Text = "";
+
+                MessageBox.Show("Se ha encontrado el colaborador de manera existosa.", "Busqueda correcta", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningún colaborador.", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion = MessageBox.Show("¿Seguro que desea modificar estos datos?", "Advertencia", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (opcion == DialogResult.Yes)
+                {
+                    //Se realiza el parse de las variables que la tabla colaboradores necesita.
+                    double salario = double.Parse(txtModificarSalario.Text);
+                    int edad = int.Parse(txtModificarEdad.Text);
+
+                    using (BdAplicacionEmpresa ap = new BdAplicacionEmpresa())
+                    {
+                        Colaboradores c = new Colaboradores();
+
+                        c = ap.Colaboradores.Find(idBuscado);
+
+                        c.Nombre = txtModificarNombre.Text;
+                        c.FechaNacimiento = dtpModificarFecha.Value;
+                        c.Direccion = txtModificarDireccion.Text;
+                        c.Salario = salario;
+                        c.Cedula = txtModificarCedula.Text;
+                        c.Genero = cbGenero.Text;
+                        c.Edad = edad;
+                        c.Puesto = txtModificarPuesto.Text;
+
+                        ap.Entry(c).State = System.Data.Entity.EntityState.Modified;
+
+                        ap.SaveChanges();
+                    }
+
+                    MessageBox.Show("Se ha modificado el colaborador de manera exitosa.", "Modificación correcta", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    limpiarDatosModificar();
+                    actualizaDgv();
+                    btnModificar.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudieron actualizar los datos del colaborador", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
     }
 }
