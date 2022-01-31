@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventarioEmpresa
@@ -15,6 +10,13 @@ namespace InventarioEmpresa
         public FrmColaboradores()
         {
             InitializeComponent();
+        }
+
+        //Metodo que realiza acciones en el instante en que se carga el Form.
+        private void FrmColaboradores_Load(object sender, EventArgs e)
+        {
+            //*****Se comenta esta linea de codigo para poder revisar el diseño sin conectarse a la BD.
+            //actualizaDgv();
         }
 
         //Se crea el objeto menú principal y se inicializa a nivel de instancia para que pueda ser utilizado en distintos métodos.
@@ -70,11 +72,6 @@ namespace InventarioEmpresa
             }
         }/*****Finalización del codigo de los botones encargados de volver al menú principal*****/
 
-        //Metodo que realiza acciones en el instante en que se carga el Form.
-        private void FrmColaboradores_Load(object sender, EventArgs e)
-        {
-            actualizaDgv();
-        }
 
         //Metodo que se encargara de limpiar todos los datos de los textBox.
         private void limpiarDatosRegistro()
@@ -255,7 +252,7 @@ namespace InventarioEmpresa
                 //Creacion de una variable booleana que se encarga de realizar validacion para saber si entrar a una condicion o no.
                 Boolean validacion = true;
 
-                DialogResult opcion = MessageBox.Show("¿Seguro que desea modificar estos datos?", "Advertencia", 
+                DialogResult opcion = MessageBox.Show("¿Seguro que desea modificar estos datos?", "Advertencia",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (cbGenero.SelectedIndex == -1)
@@ -342,7 +339,8 @@ namespace InventarioEmpresa
                 MessageBox.Show("Se ha encontrado el colaborador de manera exitosa.", "Mensaje", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("No se ha encontrado ningún colaborador.", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
@@ -351,11 +349,12 @@ namespace InventarioEmpresa
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 DialogResult opcion = MessageBox.Show("¿Seguro que desea eliminar este colaborador?", "Error", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-                if(opcion == DialogResult.Yes)
+                if (opcion == DialogResult.Yes)
                 {
                     using (BdAplicacionEmpresa ap = new BdAplicacionEmpresa())
                     {
@@ -375,7 +374,8 @@ namespace InventarioEmpresa
                     MessageBox.Show("Se ha eliminado el colaborador de manera correcta.", "Información", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("No se pudo eliminar el colaborador de manera correcta.", "Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);

@@ -36,9 +36,11 @@ namespace InventarioEmpresa
             // pbProceso
             // 
             this.pbProceso.Location = new System.Drawing.Point(23, 32);
-            this.pbProceso.Maximum = 10000;
+            this.pbProceso.MarqueeAnimationSpeed = 1;
+            this.pbProceso.Maximum = 1000000;
             this.pbProceso.Name = "pbProceso";
             this.pbProceso.Size = new System.Drawing.Size(251, 23);
+            this.pbProceso.Step = 1;
             this.pbProceso.TabIndex = 0;
             // 
             // FrmProcesoConexion

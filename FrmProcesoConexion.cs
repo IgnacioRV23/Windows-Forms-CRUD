@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace InventarioEmpresa
 {
@@ -25,7 +17,7 @@ namespace InventarioEmpresa
             {
                 pbProceso.Value++;
 
-            } while (pbProceso.Value < 10000);
+            } while (pbProceso.Value < 1000000);
 
             this.Dispose();
         }

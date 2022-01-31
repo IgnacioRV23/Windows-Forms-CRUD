@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventarioEmpresa
@@ -16,18 +9,14 @@ namespace InventarioEmpresa
         {
             InitializeComponent();
         }
-        
-        //Este método se encargara de mostrar el login cuando se ejecute la aplicación.
-        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+
+        //Se crea e inicializa el objeto que contiene el metodo que muestra el progressBar.
+        FrmProcesoConexion pc = new FrmProcesoConexion();
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.Visible = true;
-
-            FrmLogin fl = new FrmLogin();
-
-            //Se valida que el usuario aun no se registrado o no y luego se muestra el login si se cumple la condicion.
-            if (FrmLogin.validacion == false) {
-                fl.ShowDialog();
-            }
+            this.Visible = false;
+            Controlador.Formularios(1);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -40,9 +29,6 @@ namespace InventarioEmpresa
                 Application.Exit();
             }
         }
-
-        //Se crea e inicializa el objeto que contiene el metodo que muestra el progressBar.
-        FrmProcesoConexion pc = new FrmProcesoConexion();
 
         private void btnBodega_Click(object sender, EventArgs e)
         {

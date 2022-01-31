@@ -42,54 +42,56 @@ namespace InventarioEmpresa
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(27, 31);
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.5F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(27, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 17);
+            this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("HP Simplified", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(27, 79);
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.5F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(27, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(157, 24);
+            this.txtUsuario.Font = new System.Drawing.Font("Verdana", 9F);
+            this.txtUsuario.Location = new System.Drawing.Point(183, 26);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 21);
+            this.txtUsuario.Size = new System.Drawing.Size(137, 22);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "admin";
             // 
             // txtContrasena
             // 
-            this.txtContrasena.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtContrasena.BackColor = System.Drawing.Color.White;
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(157, 72);
+            this.txtContrasena.Font = new System.Drawing.Font("Verdana", 9F);
+            this.txtContrasena.Location = new System.Drawing.Point(183, 74);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(100, 21);
+            this.txtContrasena.Size = new System.Drawing.Size(137, 22);
             this.txtContrasena.TabIndex = 3;
+            this.txtContrasena.Text = "admin";
             // 
             // cbMostrar
             // 
             this.cbMostrar.AutoSize = true;
-            this.cbMostrar.Font = new System.Drawing.Font("HP Simplified", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMostrar.ForeColor = System.Drawing.Color.White;
-            this.cbMostrar.Location = new System.Drawing.Point(193, 98);
+            this.cbMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMostrar.ForeColor = System.Drawing.Color.Black;
+            this.cbMostrar.Location = new System.Drawing.Point(252, 102);
             this.cbMostrar.Name = "cbMostrar";
-            this.cbMostrar.Size = new System.Drawing.Size(64, 18);
+            this.cbMostrar.Size = new System.Drawing.Size(68, 19);
             this.cbMostrar.TabIndex = 4;
             this.cbMostrar.Text = "Mostrar";
             this.cbMostrar.UseVisualStyleBackColor = true;
@@ -97,38 +99,50 @@ namespace InventarioEmpresa
             // 
             // btnIngresar
             // 
-            this.btnIngresar.BackColor = System.Drawing.Color.Navy;
-            this.btnIngresar.Font = new System.Drawing.Font("HP Simplified", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.BackColor = System.Drawing.Color.White;
+            this.btnIngresar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIngresar.Font = new System.Drawing.Font("Verdana", 8F);
+            this.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnIngresar.Image = global::InventarioEmpresa.Properties.Resources.puerta;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnIngresar.Location = new System.Drawing.Point(169, 138);
+            this.btnIngresar.Location = new System.Drawing.Point(183, 153);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(99, 29);
+            this.btnIngresar.Size = new System.Drawing.Size(137, 35);
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Iniciar sesión";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(19, 138);
+            this.btnCerrar.BackColor = System.Drawing.Color.White;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.Font = new System.Drawing.Font("Verdana", 8F);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrar.Image = global::InventarioEmpresa.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.Location = new System.Drawing.Point(30, 153);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(99, 29);
+            this.btnCerrar.Size = new System.Drawing.Size(137, 35);
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.Text = "Cerrar aplicación";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(288, 184);
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.CancelButton = this.btnCerrar;
+            this.ClientSize = new System.Drawing.Size(350, 200);
             this.ControlBox = false;
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnIngresar);
@@ -137,11 +151,11 @@ namespace InventarioEmpresa
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
-            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión";
             this.ResumeLayout(false);

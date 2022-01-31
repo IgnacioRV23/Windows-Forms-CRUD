@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventarioEmpresa
@@ -24,7 +19,8 @@ namespace InventarioEmpresa
         //Cuando se cargue nuevamente el formulario, este metodo refrescara el dgv para mostrar los datos al dia.
         private void FrmBodega_Load(object sender, EventArgs e)
         {
-            actualizaDgv();
+            //*****Se comenta esta linea de codigo para poder revisar el diseño sin conectarse a la BD.
+            //actualizaDgv();
         }
 
         private void btnCerrarBodega_Click(object sender, EventArgs e)
@@ -35,7 +31,8 @@ namespace InventarioEmpresa
             DialogResult opcion = MessageBox.Show("¿Seguro que desea salir del manejo de bodega?", "Advertencia", MessageBoxButtons.YesNo);
 
             //Condicion que cierra el formulario de bodega y abre nuevamente el menú principal.
-            if (opcion == DialogResult.Yes) {
+            if (opcion == DialogResult.Yes)
+            {
                 this.Dispose();
                 fmp.Visible = true;
             }
@@ -43,7 +40,8 @@ namespace InventarioEmpresa
 
         /*Creacion de un metodo privado que se encargara de actualizar la informacion del dgv cuando se cargue el formulario,
         este metodo se considera el read del CRUD, debido a que es el encargado de mostrar los datos para poder leerlos.*/
-        private void actualizaDgv(){ 
+        private void actualizaDgv()
+        {
             //Se utiliza el using para realizar la interaccion con la base de datos.
             using (BdAplicacionEmpresa ae = new BdAplicacionEmpresa())
             {
@@ -79,9 +77,10 @@ namespace InventarioEmpresa
              creada en la base de datos no aceptados datos nulos.*/
             if (txtPrecioProducto.Text.Equals("") || txtCantidadProducto.Text.Equals("") || txtPrecioProducto.Text.Equals(""))
             {
-                MessageBox.Show("Faltan datos por ingresar, intente nuevamente.", "Error", MessageBoxButtons.OK, 
+                MessageBox.Show("Faltan datos por ingresar, intente nuevamente.", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 cantidad = int.Parse(txtCantidadProducto.Text);
                 precio = float.Parse(txtPrecioProducto.Text);

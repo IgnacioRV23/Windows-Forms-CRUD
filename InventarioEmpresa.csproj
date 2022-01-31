@@ -58,6 +58,7 @@
     <Compile Include="Bodega.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controlador.cs" />
     <Compile Include="Colaboradores.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>

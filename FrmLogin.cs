@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventarioEmpresa
@@ -17,11 +10,8 @@ namespace InventarioEmpresa
             InitializeComponent();
         }
 
-        //Creacion de una variable publica que evita que el formulario login se vuelva a abrir, cuando no se desea.
-        public static Boolean validacion = false;
-
         //Creacion de una variable contador, para que el usuario no exceda el numero de intentos permitidos en la aplicacion.
-        int contador = 0;
+        int contador = 0;        
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -35,22 +25,20 @@ namespace InventarioEmpresa
             {
                 MessageBox.Show("Bienvenido usuario!", "Ingreso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //Se define como true la variable para hacer la validacion en el formulario menu principal.
-                validacion = true;
-
-                this.Dispose();
+                this.Visible = false;
+                Controlador.Formularios(2);
             }
             else
             {
                 if (contador < 2) //Si contador aun no tiene el valor de 2, puede intentar ingresar la contraseña nuevamente.
                 {
-                    MessageBox.Show("Su usuario o contraseña son incorrectas, intente nuevamente.", "Error de ingreso",
+                    MessageBox.Show("Su usuario o contraseña son incorrectos, intente nuevamente.", "Error de ingreso",
                                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     contador++;
                 }
                 else //Si supera los intentos permitidos la aplicacion envia un mensaje y se cierra.
                 {
-                    MessageBox.Show("Se han excedido los intentos permitidos, la aplicación se cerrara.", "Advertencia", 
+                    MessageBox.Show("Se han excedido los intentos permitidos, la aplicación se cerrara.", "Advertencia",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     Application.Exit();
@@ -66,6 +54,11 @@ namespace InventarioEmpresa
             if (opcion == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+
+            if (opcion == DialogResult.No)
+            {
+                this.Visible = true;
             }
         }
 
