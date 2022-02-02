@@ -203,7 +203,7 @@ namespace InventarioEmpresa
         private void btnLimpiarModificar_Click(object sender, EventArgs e)
         {
             limpiarDatosModificar();
-            btnModificar.Visible = false;
+            btnModificar.Enabled = false;
         }
 
         //Esta variable se encargara de almacenar el id buscado por el usuario.
@@ -232,7 +232,7 @@ namespace InventarioEmpresa
                     txtModificarPuesto.Text = c.Puesto.ToString();
                 }
 
-                btnModificar.Visible = true;
+                btnModificar.Enabled = true;
                 txtModificar.Text = "";
 
                 MessageBox.Show("Se ha encontrado el colaborador de manera existosa.", "Busqueda correcta", MessageBoxButtons.OK,
@@ -294,7 +294,7 @@ namespace InventarioEmpresa
 
                     limpiarDatosModificar();
                     actualizaDgv();
-                    btnModificar.Visible = false;
+                    btnModificar.Enabled = false;
                 }
             }
             catch (Exception)
@@ -308,7 +308,7 @@ namespace InventarioEmpresa
         private void btnLimpiarEliminar_Click(object sender, EventArgs e)
         {
             limpiarDatosEliminar();
-            btnEliminar.Visible = false;
+            btnEliminar.Enabled = false;
         }
 
         //Metodo encargado de realizar la busqueda por codigo de los colaboradores y ingresarlos en los txt.
@@ -334,7 +334,7 @@ namespace InventarioEmpresa
                     txtEliminarPuesto.Text = c.Puesto.ToString();
                 }
                 txtEliminar.Text = "";
-                btnEliminar.Visible = true;
+                btnEliminar.Enabled = true;
 
                 MessageBox.Show("Se ha encontrado el colaborador de manera exitosa.", "Mensaje", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -367,7 +367,7 @@ namespace InventarioEmpresa
                         ap.SaveChanges();
                     }
 
-                    btnEliminar.Visible = false;
+                    btnEliminar.Enabled = false;
                     actualizaDgv();
                     limpiarDatosEliminar();
 

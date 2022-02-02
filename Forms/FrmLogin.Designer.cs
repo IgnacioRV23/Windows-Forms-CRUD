@@ -104,7 +104,7 @@ namespace InventarioEmpresa
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngresar.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIngresar.Image = global::InventarioEmpresa.Properties.Resources.puerta;
+            this.btnIngresar.Image = global::InventarioEmpresa.Properties.Resources.login;
             this.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngresar.Location = new System.Drawing.Point(183, 153);
             this.btnIngresar.Name = "btnIngresar";
@@ -123,7 +123,7 @@ namespace InventarioEmpresa
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrar.Font = new System.Drawing.Font("Verdana", 8F);
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCerrar.Image = global::InventarioEmpresa.Properties.Resources.close;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.Location = new System.Drawing.Point(30, 153);
             this.btnCerrar.Name = "btnCerrar";

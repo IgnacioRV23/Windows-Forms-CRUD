@@ -34,11 +34,11 @@ namespace InventarioEmpresa
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnCerrarAplicacion = new System.Windows.Forms.Button();
             this.btnColaboradores = new System.Windows.Forms.Button();
             this.btnBodega = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -84,12 +84,38 @@ namespace InventarioEmpresa
             this.label4.TabIndex = 6;
             this.label4.Text = "Cerrar la aplicación:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 11F);
+            this.label5.Location = new System.Drawing.Point(51, 272);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 18);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Cerrar la sesión:";
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Azure;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Verdana", 8F);
+            this.btnCerrarSesion.Image = global::InventarioEmpresa.Properties.Resources.regresar;
+            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(368, 265);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(148, 25);
+            this.btnCerrarSesion.TabIndex = 5;
+            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // btnCerrarAplicacion
             // 
             this.btnCerrarAplicacion.BackColor = System.Drawing.Color.Azure;
             this.btnCerrarAplicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarAplicacion.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarAplicacion.Image = global::InventarioEmpresa.Properties.Resources.close;
+            this.btnCerrarAplicacion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarAplicacion.Image")));
             this.btnCerrarAplicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarAplicacion.Location = new System.Drawing.Point(368, 342);
             this.btnCerrarAplicacion.Name = "btnCerrarAplicacion";
@@ -131,32 +157,6 @@ namespace InventarioEmpresa
             this.btnBodega.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBodega.UseVisualStyleBackColor = false;
             this.btnBodega.Click += new System.EventHandler(this.btnBodega_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 11F);
-            this.label5.Location = new System.Drawing.Point(51, 272);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Cerrar la sesión:";
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.Azure;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Verdana", 8F);
-            this.btnCerrarSesion.Image = global::InventarioEmpresa.Properties.Resources.puerta;
-            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(368, 265);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(148, 25);
-            this.btnCerrarSesion.TabIndex = 5;
-            this.btnCerrarSesion.Text = "Cerrar sesión";
-            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // FrmMenuPrincipal
             // 

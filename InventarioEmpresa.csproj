@@ -58,7 +58,7 @@
     <Compile Include="Bodega.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controlador.cs" />
+    <Compile Include="Codigo\Controlador.cs" />
     <Compile Include="Colaboradores.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>
@@ -77,63 +77,58 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FrmBodega.cs">
+    <Compile Include="Forms\FrmBodega.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBodega.Designer.cs">
+    <Compile Include="Forms\FrmBodega.Designer.cs">
       <DependentUpon>FrmBodega.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmColaboradores.cs">
+    <Compile Include="Forms\FrmColaboradores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmColaboradores.Designer.cs">
+    <Compile Include="Forms\FrmColaboradores.Designer.cs">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.cs">
+    <Compile Include="Forms\FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.Designer.cs">
+    <Compile Include="Forms\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProcesoConexion.cs">
+    <Compile Include="Forms\FrmProcesoConexion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProcesoConexion.Designer.cs">
+    <Compile Include="Forms\FrmProcesoConexion.Designer.cs">
       <DependentUpon>FrmProcesoConexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Codigo\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBodega.resx">
+    <EmbeddedResource Include="Forms\FrmBodega.resx">
       <DependentUpon>FrmBodega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmColaboradores.resx">
+    <EmbeddedResource Include="Forms\FrmColaboradores.resx">
       <DependentUpon>FrmColaboradores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+    <EmbeddedResource Include="Forms\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProcesoConexion.resx">
+    <EmbeddedResource Include="Forms\FrmProcesoConexion.resx">
       <DependentUpon>FrmProcesoConexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EntityDeploy Include="EntityAplicacionEmpresa.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityAplicacionEmpresa.Designer.cs</LastGenOutput>
@@ -146,6 +141,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -165,10 +165,10 @@
     <None Include="imagenes\colaboradores.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\puerta.png" />
+    <None Include="imagenes\puerta.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close.png" />
+    <None Include="imagenes\close.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -184,6 +184,15 @@
       <DependentUpon>EntityAplicacionEmpresa.edmx</DependentUpon>
       <LastGenOutput>EntityAplicacionEmpresa.cs</LastGenOutput>
     </Content>
+    <None Include="imagenes\search.png" />
+    <None Include="imagenes\delete.png" />
+    <None Include="imagenes\update.png" />
+    <None Include="imagenes\regresar.png" />
+    <None Include="imagenes\login.png" />
+    <None Include="imagenes\create.png" />
+    <None Include="imagenes\broom.png" />
+    <None Include="Resources\close.bmp" />
+    <None Include="imagenes\clear.png" />
     <None Include="imagenes\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
