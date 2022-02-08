@@ -46,6 +46,7 @@ namespace InventarioEmpresa
             this.btnRegresarConsultar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.tpRegistro = new System.Windows.Forms.TabPage();
+            this.btnLimpiarRegistro = new System.Windows.Forms.Button();
             this.btnRegresarRegistrar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.gbEmpresa = new System.Windows.Forms.GroupBox();
@@ -54,11 +55,11 @@ namespace InventarioEmpresa
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRegistrarDistrito = new System.Windows.Forms.TextBox();
-            this.txtRegistrarCanton = new System.Windows.Forms.TextBox();
+            this.cbDistritos = new System.Windows.Forms.ComboBox();
+            this.cbCantones = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbRegistrarProvincia = new System.Windows.Forms.ComboBox();
+            this.cbProvincias = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.gbDatosPersonales = new System.Windows.Forms.GroupBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -76,6 +77,7 @@ namespace InventarioEmpresa
             this.label1 = new System.Windows.Forms.Label();
             this.tpModificar = new System.Windows.Forms.TabPage();
             this.gbModificarColaborador = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.btnLimpiarModificar = new System.Windows.Forms.Button();
             this.dtpModificarFecha = new System.Windows.Forms.DateTimePicker();
@@ -100,6 +102,7 @@ namespace InventarioEmpresa
             this.label24 = new System.Windows.Forms.Label();
             this.tpEliminar = new System.Windows.Forms.TabPage();
             this.gbEliminarColaborador = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dtpEliminarFecha = new System.Windows.Forms.DateTimePicker();
             this.btnLimpiarEliminar = new System.Windows.Forms.Button();
             this.txtEliminar = new System.Windows.Forms.TextBox();
@@ -122,8 +125,6 @@ namespace InventarioEmpresa
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tcMenuColaboradores.SuspendLayout();
             this.tpConsultar.SuspendLayout();
             this.gbConsultarColaborador.SuspendLayout();
@@ -134,9 +135,9 @@ namespace InventarioEmpresa
             this.gbDatosPersonales.SuspendLayout();
             this.tpModificar.SuspendLayout();
             this.gbModificarColaborador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tpEliminar.SuspendLayout();
             this.gbEliminarColaborador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,7 +263,8 @@ namespace InventarioEmpresa
             // 
             // btnRegresarConsultar
             // 
-            this.btnRegresarConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegresarConsultar.BackColor = System.Drawing.Color.White;
+            this.btnRegresarConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnRegresarConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresarConsultar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnRegresarConsultar.ForeColor = System.Drawing.Color.Black;
@@ -292,6 +294,7 @@ namespace InventarioEmpresa
             // tpRegistro
             // 
             this.tpRegistro.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpRegistro.Controls.Add(this.btnLimpiarRegistro);
             this.tpRegistro.Controls.Add(this.btnRegresarRegistrar);
             this.tpRegistro.Controls.Add(this.btnRegistrar);
             this.tpRegistro.Controls.Add(this.gbEmpresa);
@@ -306,6 +309,19 @@ namespace InventarioEmpresa
             this.tpRegistro.TabIndex = 0;
             this.tpRegistro.Text = "Registrar";
             // 
+            // btnLimpiarRegistro
+            // 
+            this.btnLimpiarRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarRegistro.Image = global::InventarioEmpresa.Properties.Resources.broom;
+            this.btnLimpiarRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiarRegistro.Location = new System.Drawing.Point(355, 388);
+            this.btnLimpiarRegistro.Name = "btnLimpiarRegistro";
+            this.btnLimpiarRegistro.Size = new System.Drawing.Size(110, 33);
+            this.btnLimpiarRegistro.TabIndex = 15;
+            this.btnLimpiarRegistro.Text = "Limpiar";
+            this.btnLimpiarRegistro.UseVisualStyleBackColor = true;
+            this.btnLimpiarRegistro.Click += new System.EventHandler(this.btnLimpiarRegistro_Click);
+            // 
             // btnRegresarRegistrar
             // 
             this.btnRegresarRegistrar.BackColor = System.Drawing.Color.White;
@@ -314,7 +330,7 @@ namespace InventarioEmpresa
             this.btnRegresarRegistrar.ForeColor = System.Drawing.Color.Black;
             this.btnRegresarRegistrar.Image = global::InventarioEmpresa.Properties.Resources.regresar;
             this.btnRegresarRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegresarRegistrar.Location = new System.Drawing.Point(92, 388);
+            this.btnRegresarRegistrar.Location = new System.Drawing.Point(45, 388);
             this.btnRegresarRegistrar.Name = "btnRegresarRegistrar";
             this.btnRegresarRegistrar.Size = new System.Drawing.Size(258, 33);
             this.btnRegresarRegistrar.TabIndex = 14;
@@ -330,7 +346,7 @@ namespace InventarioEmpresa
             this.btnRegistrar.ForeColor = System.Drawing.Color.Black;
             this.btnRegistrar.Image = global::InventarioEmpresa.Properties.Resources.create;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrar.Location = new System.Drawing.Point(464, 388);
+            this.btnRegistrar.Location = new System.Drawing.Point(513, 388);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(110, 33);
             this.btnRegistrar.TabIndex = 12;
@@ -392,11 +408,11 @@ namespace InventarioEmpresa
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtRegistrarDistrito);
-            this.groupBox1.Controls.Add(this.txtRegistrarCanton);
+            this.groupBox1.Controls.Add(this.cbDistritos);
+            this.groupBox1.Controls.Add(this.cbCantones);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.cbRegistrarProvincia);
+            this.groupBox1.Controls.Add(this.cbProvincias);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(372, 48);
@@ -406,23 +422,25 @@ namespace InventarioEmpresa
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dirección";
             // 
-            // txtRegistrarDistrito
+            // cbDistritos
             // 
-            this.txtRegistrarDistrito.BackColor = System.Drawing.Color.AliceBlue;
-            this.txtRegistrarDistrito.Font = new System.Drawing.Font("Verdana", 8.5F);
-            this.txtRegistrarDistrito.Location = new System.Drawing.Point(130, 135);
-            this.txtRegistrarDistrito.Name = "txtRegistrarDistrito";
-            this.txtRegistrarDistrito.Size = new System.Drawing.Size(121, 21);
-            this.txtRegistrarDistrito.TabIndex = 11;
+            this.cbDistritos.Font = new System.Drawing.Font("Verdana", 8.5F);
+            this.cbDistritos.FormattingEnabled = true;
+            this.cbDistritos.Location = new System.Drawing.Point(130, 138);
+            this.cbDistritos.Name = "cbDistritos";
+            this.cbDistritos.Size = new System.Drawing.Size(121, 21);
+            this.cbDistritos.TabIndex = 11;
+            this.cbDistritos.DropDown += new System.EventHandler(this.cbDistrito_DropDown);
             // 
-            // txtRegistrarCanton
+            // cbCantones
             // 
-            this.txtRegistrarCanton.BackColor = System.Drawing.Color.AliceBlue;
-            this.txtRegistrarCanton.Font = new System.Drawing.Font("Verdana", 8.5F);
-            this.txtRegistrarCanton.Location = new System.Drawing.Point(130, 86);
-            this.txtRegistrarCanton.Name = "txtRegistrarCanton";
-            this.txtRegistrarCanton.Size = new System.Drawing.Size(121, 21);
-            this.txtRegistrarCanton.TabIndex = 10;
+            this.cbCantones.Font = new System.Drawing.Font("Verdana", 8.5F);
+            this.cbCantones.FormattingEnabled = true;
+            this.cbCantones.Location = new System.Drawing.Point(130, 87);
+            this.cbCantones.Name = "cbCantones";
+            this.cbCantones.Size = new System.Drawing.Size(121, 21);
+            this.cbCantones.TabIndex = 10;
+            this.cbCantones.DropDown += new System.EventHandler(this.cbCanton_DropDown);
             // 
             // label11
             // 
@@ -444,23 +462,16 @@ namespace InventarioEmpresa
             this.label10.TabIndex = 8;
             this.label10.Text = "Cantón:";
             // 
-            // cbRegistrarProvincia
+            // cbProvincias
             // 
-            this.cbRegistrarProvincia.BackColor = System.Drawing.Color.AliceBlue;
-            this.cbRegistrarProvincia.Font = new System.Drawing.Font("Verdana", 8.5F);
-            this.cbRegistrarProvincia.FormattingEnabled = true;
-            this.cbRegistrarProvincia.Items.AddRange(new object[] {
-            "San José",
-            "Heredia",
-            "Alajuela",
-            "Guanacaste",
-            "Puntarenas",
-            "Limón",
-            "Cartago"});
-            this.cbRegistrarProvincia.Location = new System.Drawing.Point(130, 32);
-            this.cbRegistrarProvincia.Name = "cbRegistrarProvincia";
-            this.cbRegistrarProvincia.Size = new System.Drawing.Size(121, 21);
-            this.cbRegistrarProvincia.TabIndex = 7;
+            this.cbProvincias.BackColor = System.Drawing.Color.AliceBlue;
+            this.cbProvincias.Font = new System.Drawing.Font("Verdana", 8.5F);
+            this.cbProvincias.FormattingEnabled = true;
+            this.cbProvincias.Location = new System.Drawing.Point(130, 34);
+            this.cbProvincias.Name = "cbProvincias";
+            this.cbProvincias.Size = new System.Drawing.Size(121, 21);
+            this.cbProvincias.TabIndex = 7;
+            this.cbProvincias.DropDown += new System.EventHandler(this.cbProvincias_DropDown);
             // 
             // label7
             // 
@@ -673,6 +684,16 @@ namespace InventarioEmpresa
             this.gbModificarColaborador.TabIndex = 19;
             this.gbModificarColaborador.TabStop = false;
             this.gbModificarColaborador.Text = "Modificar Colaborador";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::InventarioEmpresa.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(371, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // cbGenero
             // 
@@ -965,6 +986,15 @@ namespace InventarioEmpresa
             this.gbEliminarColaborador.TabStop = false;
             this.gbEliminarColaborador.Text = "Eliminar Colaborador";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::InventarioEmpresa.Properties.Resources.search;
+            this.pictureBox2.Location = new System.Drawing.Point(381, 38);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(22, 21);
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
             // dtpEliminarFecha
             // 
             this.dtpEliminarFecha.CustomFormat = "dd, MM, yyyy";
@@ -1208,25 +1238,6 @@ namespace InventarioEmpresa
             this.label30.TabIndex = 0;
             this.label30.Text = "Ingrese el ID del colaborador que desea eliminar:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::InventarioEmpresa.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(371, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::InventarioEmpresa.Properties.Resources.search;
-            this.pictureBox2.Location = new System.Drawing.Point(381, 38);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 21);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
             // FrmColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1257,10 +1268,10 @@ namespace InventarioEmpresa
             this.tpModificar.ResumeLayout(false);
             this.gbModificarColaborador.ResumeLayout(false);
             this.gbModificarColaborador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tpEliminar.ResumeLayout(false);
             this.gbEliminarColaborador.ResumeLayout(false);
             this.gbEliminarColaborador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -1287,8 +1298,6 @@ namespace InventarioEmpresa
         private System.Windows.Forms.TextBox txtRegistrarSalario;
         private System.Windows.Forms.TextBox txtRegistrarPuesto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtRegistrarDistrito;
-        private System.Windows.Forms.TextBox txtRegistrarCanton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox gbDatosPersonales;
@@ -1345,7 +1354,7 @@ namespace InventarioEmpresa
         private System.Windows.Forms.TextBox txtModificar;
         private System.Windows.Forms.TextBox txtEliminar;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.ComboBox cbRegistrarProvincia;
+        private System.Windows.Forms.ComboBox cbProvincias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -1362,5 +1371,8 @@ namespace InventarioEmpresa
         private System.Windows.Forms.DateTimePicker dtpEliminarFecha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ComboBox cbDistritos;
+        private System.Windows.Forms.ComboBox cbCantones;
+        private System.Windows.Forms.Button btnLimpiarRegistro;
     }
 }

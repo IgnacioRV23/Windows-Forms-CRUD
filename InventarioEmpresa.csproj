@@ -58,7 +58,14 @@
     <Compile Include="Bodega.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>
+    <Compile Include="Codigo\Alajuela.cs" />
+    <Compile Include="Codigo\Cartago.cs" />
     <Compile Include="Codigo\Controlador.cs" />
+    <Compile Include="Codigo\Guanacaste.cs" />
+    <Compile Include="Codigo\Heredia.cs" />
+    <Compile Include="Codigo\Limon.cs" />
+    <Compile Include="Codigo\Puntarenas.cs" />
+    <Compile Include="Codigo\SanJose.cs" />
     <Compile Include="Colaboradores.cs">
       <DependentUpon>EntityAplicacionEmpresa.tt</DependentUpon>
     </Compile>

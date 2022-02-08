@@ -2,6 +2,7 @@
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using InventarioEmpresa.Codigo;
 
 namespace InventarioEmpresa
 {
@@ -21,6 +22,160 @@ namespace InventarioEmpresa
 
         //Se crea el objeto menú principal y se inicializa a nivel de instancia para que pueda ser utilizado en distintos métodos.
         FrmMenuPrincipal fmp = new FrmMenuPrincipal();
+
+        /**
+         * Codificación de los métodos que se encargan de controlar los cb del aparto de dirección.
+         */
+
+        //Creacion de los objetos que son necesarios para llenar los comboBox.
+        SanJose sj = new SanJose();
+        Alajuela al = new Alajuela();
+        Cartago ct = new Cartago();
+        Heredia hr = new Heredia();
+        Guanacaste gn = new Guanacaste();
+        Puntarenas pt = new Puntarenas();
+        Limon lm = new Limon();
+
+        private void cbProvincias_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                cbCantones.Text = "";
+                cbDistritos.Text = "";
+                cbProvincias.Text = "Elegir";
+
+                cbProvincias.Items.Clear();
+
+                String[] provincias = new string[] {
+                    "San José",
+                    "Alajuela",
+                    "Cartago",
+                    "Heredia",
+                    "Guanacaste",
+                    "Puntarenas",
+                    "Limón"
+                };
+
+                cbProvincias.Items.AddRange(provincias);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                        "A ocurrido un error, intente nuevamente.",
+                        "Error!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }
+        }
+        private void cbCanton_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                cbDistritos.Text = "";
+                cbCantones.Text = "Elegir";
+                cbCantones.Items.Clear();
+
+                if (cbProvincias.SelectedItem.Equals("San José"))
+                {
+                    cbCantones.Items.AddRange(sj.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Alajuela"))
+                {
+                    cbCantones.Items.AddRange(al.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Cartago"))
+                {
+                    cbCantones.Items.AddRange(ct.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Heredia"))
+                {
+                    cbCantones.Items.AddRange(hr.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Guanacaste"))
+                {
+                    cbCantones.Items.AddRange(gn.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Puntarenas"))
+                {
+                    cbCantones.Items.AddRange(pt.cantones());
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Limón"))
+                {
+                    cbCantones.Items.AddRange(lm.cantones());
+                }
+            }
+            catch (Exception)
+            {
+                cbCantones.Text = "";
+                MessageBox.Show(
+                        "A ocurrido un error, intente nuevamente.",
+                        "Error!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }
+        }
+
+        private void cbDistrito_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                cbDistritos.Text = "Elegir";
+                cbDistritos.Items.Clear();
+
+                if (cbProvincias.SelectedItem.Equals("San José"))
+                {
+                    cbDistritos.Items.AddRange(sj.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Alajuela"))
+                {
+                    cbDistritos.Items.AddRange(al.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Cartago"))
+                {
+                    cbDistritos.Items.AddRange(ct.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Heredia"))
+                {
+                    cbDistritos.Items.AddRange(hr.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Guanacaste"))
+                {
+                    cbDistritos.Items.AddRange(gn.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Puntarenas"))
+                {
+                    cbDistritos.Items.AddRange(pt.distritos(cbCantones.SelectedItem.ToString()));
+                }
+
+                if (cbProvincias.SelectedItem.Equals("Limón"))
+                {
+                    cbDistritos.Items.AddRange(lm.distritos(cbCantones.SelectedItem.ToString()));
+                }
+            }
+            catch (Exception)
+            {
+                cbDistritos.Text = "";
+                MessageBox.Show(
+                        "A ocurrido un error, intente nuevamente.",
+                        "Error!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+            }
+        }
 
         /****Se codificarán todos los botones del formulario encargados de devolverse al menú principal.*****/
         private void btnRegresarRegistrar_Click(object sender, EventArgs e)
@@ -56,7 +211,6 @@ namespace InventarioEmpresa
             {
                 this.Dispose();
                 fmp.Visible = true;
-
             }
         }
 
@@ -79,9 +233,9 @@ namespace InventarioEmpresa
             txtRegistrarCedula.Text = "";
             txtRegistrarNombre.Text = "";
             txtRegistrarPuesto.Text = "";
-            cbRegistrarProvincia.Text = "";
-            txtRegistrarCanton.Text = "";
-            txtRegistrarDistrito.Text = "";
+            cbProvincias.Text = "";
+            cbCantones.Text = "";
+            cbDistritos.Text = "";
 
             txtRegistrarEdad.Text = "";
             txtRegistrarSalario.Text = "";
@@ -151,13 +305,13 @@ namespace InventarioEmpresa
             string cedula = txtRegistrarCedula.Text;
             string nombre = txtRegistrarNombre.Text;
             string puesto = txtRegistrarPuesto.Text;
-            string canton = txtRegistrarCanton.Text;
-            string distrito = txtRegistrarDistrito.Text;
-            string provincia = cbRegistrarProvincia.Text;
+            string canton = cbCantones.Text;
+            string distrito = cbDistritos.Text;
+            string provincia = cbProvincias.Text;
 
             //Cracion de variables que no son de tipo string.
             DateTime FechaNacimiento = dtpFecha.Value;
-            string direccion = cbRegistrarProvincia.Text + " " + txtRegistrarCanton.Text + " " + txtRegistrarDistrito.Text;
+            string direccion = cbProvincias.Text + " " + cbCantones.Text + " " + cbDistritos.Text;
 
             /*Validacion encargada de que ninguno de los datos queden vacios, debido a 
              que ninguno de los atributos de la tabla de la base de datos acepta nulos.*/
@@ -197,6 +351,11 @@ namespace InventarioEmpresa
                 actualizaDgv();
                 limpiarDatosRegistro();
             }
+        }
+        //Método encargo de limpiar los datos del formulario de registro.
+        private void btnLimpiarRegistro_Click(object sender, EventArgs e)
+        {
+            limpiarDatosRegistro();
         }
 
         //Este boton se encarga de limpiar los datos del txt del formulario que modifica los colaboradores.

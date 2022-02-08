@@ -11,7 +11,7 @@ namespace InventarioEmpresa
         }
 
         //Creacion de una variable contador, para que el usuario no exceda el numero de intentos permitidos en la aplicacion.
-        int contador = 0;        
+        int contador = 0;
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
